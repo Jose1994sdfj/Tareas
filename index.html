@@ -2,16 +2,18 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0d1117">
-    <meta name="description" content="Gestor profesional de tareas con notificaciones, categorías y sincronización en la nube">
-    <title>Tareas Pro | Gestor profesional</title>
-    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlRhcmVhcyBQcm8iLAogICJzaG9ydF9uYW1lIjogIlRhcmVhcyIsCiAgInN0YXJ0X3VybCI6ICIuLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzBkMTExNyIsCiAgInRoZW1lX2NvbG9yIjogIiMwZDExMTciLAogICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2ZyV4bWwsJTNDc3ZnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnJTNFJTNDcmVjdCB3aWR0aD0nMTAwJyBoZWlnaHQ9JzEwMCcgcng9JzIwJyBmaWxsPSclMjMxNjI0NDcnLyUzRSUzQ3BhdGggZD0nTTMwIDU1bDEwLTEwIDEwIDEwIDIwLTIwJyBzdHJva2U9JyUyMzQzYjk0MCcgc3Ryb2tlLXdpZHRoPSc4JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIGZpbGw9J25vbmUnLyUzRSUzQy9zdmclM0UiLCAic2l6ZXMiOiAiMTQ0eDE0NCIsICJ0eXBlIjogImltYWdlL3N2ZyV4bWwifV19">
+    <meta name="description" content="Aplicacion profesional de gestion de tareas">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Tareas Pro</title>
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlRhcmVhcyBQcm8iLAogICJzaG9ydF9uYW1lIjogIlRhcmVhcyIsCiAgInN0YXJ0X3VybCI6ICIuLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzBkMTExNyIsCiAgInRoZW1lX2NvbG9yIjogIiMwZDExMTciLAogICJpY29ucyI6IFt7CiAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgNTEyIDUxMiclM0UlM0NkZWZzJTNFJTNDbGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzEwMCclM0UlM0NzdG9wIG9mZnNldD0nMCUnIHN0eWxlPSdzdG9wLWNvbG9yOiUyMzNmYjk1MCcvJTNFJTNDc3RvcCBvZmZzZXQ9JzEwMCUnIHN0eWxlPSdzdG9wLWNvbG9yOiUyMzJlYTA0MycvJTNFJTNDL2xpbmVhckdyYWRpZW50JTNFJTNDL2RlZnMlM0UlM0NyZWN0IHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyByeD0nMTEyJyBmaWxsPSd1cmwoJTIzZyknLyUzRSUzQ3BhdGggZD0nTTE2MCAyODBsNDgtNDggNjQgNjQgMTI4LTEyOCcgc3Ryb2tlPSclMjMwMDAnIHN0cm9rZS13aWR0aD0nMzYnIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgc3Ryb2tlLWxpbmVqb2luPSdyb3VuZCcgZmlsbD0nbm9uZScgb3BhY2l0eT0nMC44NScvJTNFJTNDL3N2ZyUzRSIsCiAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIKICB9XX0=">
     <style>
         :root {
             --bg: #0d1117;
             --surface: #161b22;
-            --surface-elevated: #1c2333;
+            --surface-hover: #1c2333;
             --border: #30363d;
             --border-hover: #484f58;
             --primary: #3fb950;
@@ -22,104 +24,133 @@
             --warning: #d2991d;
             --warning-muted: rgba(210,153,29,0.12);
             --info: #58a6ff;
-            --info-muted: rgba(88,166,255,0.12);
             --text: #e6edf3;
             --text-secondary: #8b949e;
             --text-tertiary: #6e7681;
             --font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+            --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
             --radius: 8px;
             --radius-lg: 12px;
-            --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
-            --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+            --shadow: 0 2px 8px rgba(0,0,0,0.3);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+            --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: var(--font);
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             justify-content: center;
-            padding: 24px 16px;
+            align-items: center;
+            padding: 16px;
             -webkit-tap-highlight-color: transparent;
-            user-select: none;
-            -webkit-user-select: none;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-        .app {
-            max-width: 600px;
+        .app { width: 100%; max-width: 620px; }
+
+        /* ==================== AUTH CONTAINER ==================== */
+        .auth-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-lg);
             width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .auth-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .auth-logo {
+            width: 56px; height: 56px;
+            background: var(--primary);
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            box-shadow: 0 0 32px rgba(63,185,80,0.2);
+        }
+        .auth-logo svg { width: 32px; height: 32px; }
+        .auth-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.3px;
+        }
+        .auth-header p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+        }
+
+        /* ==================== FORM STYLES ==================== */
+        .auth-form {
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
-
-        /* Auth Screen */
-        .auth-screen {
+        .form-group {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-            gap: 28px;
-            text-align: center;
+            gap: 6px;
         }
-        .auth-logo {
-            width: 56px;
-            height: 56px;
-            background: var(--primary);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 24px rgba(63,185,80,0.25);
-        }
-        .auth-logo svg { width: 30px; height: 30px; }
-        .auth-screen h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: var(--text);
-        }
-        .auth-screen .subtitle {
+        .form-group label {
+            font-size: 0.78rem;
+            font-weight: 600;
             color: var(--text-secondary);
-            max-width: 380px;
-            line-height: 1.6;
-            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
         }
-        .auth-form {
+        .input-wrapper {
+            position: relative;
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-            max-width: 380px;
-            background: var(--surface);
-            padding: 32px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-lg);
+            align-items: center;
+        }
+        .input-wrapper svg {
+            position: absolute;
+            left: 12px;
+            width: 18px;
+            height: 18px;
+            color: var(--text-tertiary);
+            pointer-events: none;
         }
         .input-field {
+            width: 100%;
             background: var(--bg);
             border: 1px solid var(--border);
             color: var(--text);
-            padding: 12px 14px;
+            padding: 11px 14px 11px 40px;
             border-radius: var(--radius);
             font-size: 0.9rem;
             outline: none;
-            transition: border var(--transition), box-shadow var(--transition);
+            transition: all var(--transition);
             font-family: var(--font);
-            width: 100%;
         }
         .input-field:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px var(--primary-muted);
         }
         .input-field::placeholder { color: var(--text-tertiary); }
+        .input-field.error { border-color: var(--danger); box-shadow: 0 0 0 3px var(--danger-muted); }
+        .field-error {
+            font-size: 0.72rem;
+            color: var(--danger);
+            min-height: 16px;
+            font-weight: 500;
+        }
+        .field-hint {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
         .btn {
             border: none;
             font-weight: 600;
@@ -130,569 +161,391 @@
             font-family: var(--font);
             transition: all var(--transition);
             text-align: center;
-            letter-spacing: 0.01em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
         }
-        .btn-primary {
-            background: var(--primary);
-            color: #000;
-        }
-        .btn-primary:hover { background: var(--primary-hover); }
-        .btn-primary:active { transform: scale(0.97); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-primary { background: var(--primary); color: #000; }
+        .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+        .btn-primary:active:not(:disabled) { transform: scale(0.97); }
         .btn-secondary {
             background: transparent;
             border: 1px solid var(--border);
             color: var(--text);
         }
-        .btn-secondary:hover { border-color: var(--border-hover); background: var(--surface-elevated); }
-        .btn-info {
-            background: var(--info);
-            color: #000;
-        }
-        .btn-info:hover { opacity: 0.9; }
+        .btn-secondary:hover { border-color: var(--border-hover); background: var(--surface-hover); }
         .btn-ghost {
             background: transparent;
-            border: 1px solid transparent;
-            color: var(--text-secondary);
-            padding: 6px 10px;
-            font-size: 0.8rem;
-        }
-        .btn-ghost:hover { color: var(--text); border-color: var(--border); }
-        .btn-icon {
-            width: 32px;
-            height: 32px;
-            padding: 0;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all var(--transition);
-            font-family: var(--font);
-            font-size: 0.85rem;
-        }
-        .btn-icon:hover { border-color: var(--border-hover); color: var(--text); background: var(--surface-elevated); }
-        .btn-danger { background: var(--danger); color: #fff; }
-        .btn-danger:hover { opacity: 0.9; }
-        .btn-sm { padding: 6px 12px; font-size: 0.78rem; border-radius: 6px; }
-        .auth-error {
-            color: var(--danger);
+            border: none;
+            color: var(--info);
+            padding: 8px;
             font-size: 0.82rem;
-            min-height: 20px;
-            text-align: center;
             font-weight: 500;
+            cursor: pointer;
+            width: auto;
+            margin: 0 auto;
         }
-        .auth-divider {
+        .btn-ghost:hover { text-decoration: underline; }
+
+        .auth-error-banner {
+            background: var(--danger-muted);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+            padding: 10px 14px;
+            border-radius: var(--radius);
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: none;
+            text-align: center;
+        }
+        .auth-error-banner.visible { display: block; }
+        .auth-success-banner {
+            background: var(--primary-muted);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 14px;
+            border-radius: var(--radius);
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: none;
+            text-align: center;
+        }
+        .auth-success-banner.visible { display: block; }
+
+        .divider {
             display: flex;
             align-items: center;
             gap: 12px;
             color: var(--text-tertiary);
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 500;
         }
-        .auth-divider::before, .auth-divider::after {
+        .divider::before, .divider::after {
             content: '';
             flex: 1;
             height: 1px;
             background: var(--border);
         }
 
-        /* Header */
-        header {
+        .auth-switch {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+        .auth-switch button {
+            background: none;
+            border: none;
+            color: var(--info);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: inherit;
+            font-family: inherit;
+        }
+        .auth-switch button:hover { text-decoration: underline; }
+
+        /* ==================== MAIN APP (mismo estilo) ==================== */
+        .app-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 4px 0;
+            padding: 4px 0 12px;
             flex-wrap: wrap;
             gap: 10px;
         }
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .header-brand { display: flex; align-items: center; gap: 10px; }
         .header-logo {
-            width: 32px;
-            height: 32px;
+            width: 34px; height: 34px;
             background: var(--primary);
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
-        .header-logo svg { width: 18px; height: 18px; }
-        header h1 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: -0.3px;
-            color: var(--text);
-        }
+        .header-logo svg { width: 20px; height: 20px; }
+        .app-header h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; }
         .header-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 20px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            font-family: var(--font-mono);
-            letter-spacing: 0.02em;
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.68rem; font-weight: 500; padding: 5px 10px;
+            border-radius: 20px; background: var(--surface);
+            border: 1px solid var(--border); color: var(--text-secondary);
+            font-family: var(--font-mono); letter-spacing: 0.02em;
         }
         .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-tertiary); transition: background 0.3s; }
         .badge.online .dot { background: var(--primary); }
         .badge.offline .dot { background: var(--danger); }
-        .badge.notif-active { border-color: var(--info); color: var(--info); }
-        .badge.notif-active .dot { background: var(--info); }
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--surface);
-            padding: 5px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            cursor: pointer;
-            font-size: 0.78rem;
-            font-weight: 500;
-            transition: all var(--transition);
-            color: var(--text-secondary);
+        .user-btn {
+            display: flex; align-items: center; gap: 8px;
+            background: var(--surface); padding: 5px 12px;
+            border-radius: 20px; border: 1px solid var(--border);
+            cursor: pointer; font-size: 0.78rem; font-weight: 500;
+            color: var(--text-secondary); font-family: var(--font);
         }
-        .user-menu:hover { border-color: var(--border-hover); color: var(--text); }
-        .user-menu .avatar {
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: var(--primary-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 0.75rem;
+        .user-btn:hover { border-color: var(--border-hover); color: var(--text); }
+        .user-btn .avatar {
+            width: 26px; height: 26px; border-radius: 50%;
+            background: var(--primary-muted); display: flex;
+            align-items: center; justify-content: center;
+            color: var(--primary); font-weight: 700; font-size: 0.75rem;
             font-family: var(--font-mono);
         }
-        .stats-bar {
-            display: flex;
-            gap: 16px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            flex-wrap: wrap;
-            padding: 2px 0;
+        .stats-row {
+            display: flex; gap: 18px; font-size: 0.75rem;
+            color: var(--text-secondary); padding: 4px 0 12px;
             font-weight: 500;
         }
-        .stats-bar span { font-weight: 700; }
-        .stats-bar .s-pending { color: var(--text); }
-        .stats-bar .s-done { color: var(--info); }
-        .stats-bar .s-overdue { color: var(--danger); }
-
-        /* Notification Panel */
+        .stats-row span { font-weight: 700; }
+        .stat-pending { color: var(--text); }
+        .stat-done { color: var(--info); }
+        .stat-overdue { color: var(--danger); }
         .panel {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 16px 18px;
-            box-shadow: var(--shadow-sm);
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 16px 18px;
+            box-shadow: var(--shadow); margin-bottom: 14px;
         }
-        .panel-header {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .panel-title {
+            font-size: 0.78rem; font-weight: 600; color: var(--text-secondary);
+            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
         }
-        .panel-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-        }
-        .toggle-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-weight: 500;
-        }
+        .panel-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+        .toggle-label { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--text); cursor: pointer; font-weight: 500; }
         .toggle-switch {
-            width: 40px;
-            height: 22px;
-            background: var(--border);
-            border-radius: 11px;
-            position: relative;
-            cursor: pointer;
-            transition: background var(--transition);
-            flex-shrink: 0;
+            width: 40px; height: 22px; background: var(--border);
+            border-radius: 11px; position: relative; cursor: pointer;
+            transition: background var(--transition); flex-shrink: 0;
         }
         .toggle-switch::after {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            background: #fff;
-            border-radius: 50%;
-            top: 2px;
-            left: 2px;
+            content: ''; position: absolute; width: 18px; height: 18px;
+            background: #fff; border-radius: 50%; top: 2px; left: 2px;
             transition: transform var(--transition);
         }
         .toggle-switch.active { background: var(--info); }
         .toggle-switch.active::after { transform: translateX(18px); }
         .select-sm {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 0.78rem;
-            outline: none;
-            font-family: var(--font);
-            cursor: pointer;
-            transition: border var(--transition);
+            background: var(--bg); border: 1px solid var(--border);
+            color: var(--text); padding: 6px 10px; border-radius: 6px;
+            font-size: 0.78rem; outline: none; font-family: var(--font); cursor: pointer;
         }
-        .select-sm:focus { border-color: var(--info); }
-        .panel-info {
-            font-size: 0.72rem;
-            color: var(--text-tertiary);
-            margin-top: 6px;
-            font-weight: 400;
+        .task-form {
+            background: var(--surface); padding: 12px 14px;
+            border-radius: var(--radius-lg); border: 1px solid var(--border);
+            box-shadow: var(--shadow); display: flex; flex-direction: column;
+            gap: 8px; transition: border var(--transition); margin-bottom: 14px;
         }
-
-        /* Task Form */
-        .task-form-container {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            background: var(--surface);
-            padding: 12px 14px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm);
-            transition: border var(--transition), box-shadow var(--transition);
-        }
-        .task-form-container:focus-within {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-muted);
-        }
+        .task-form:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-muted); }
         .task-form-row { display: flex; gap: 8px; }
         .task-form-row input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: var(--text);
-            font-size: 0.9rem;
-            padding: 8px 2px;
-            min-width: 0;
-            font-family: var(--font);
+            flex: 1; background: transparent; border: none; outline: none;
+            color: var(--text); font-size: 0.9rem; padding: 8px 2px;
+            min-width: 0; font-family: var(--font);
         }
         .task-form-row input::placeholder { color: var(--text-tertiary); }
-        .task-form-options {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            align-items: center;
+        .task-form-options { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+        .task-form-options select, .task-form-options input[type="date"], .task-form-options input[type="time"] {
+            background: var(--bg); border: 1px solid var(--border); color: var(--text);
+            padding: 6px 10px; border-radius: 6px; font-size: 0.76rem;
+            outline: none; font-family: var(--font); cursor: pointer;
         }
-        .task-form-options select,
-        .task-form-options input[type="date"],
-        .task-form-options input[type="time"] {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 0.76rem;
-            outline: none;
-            font-family: var(--font);
-            cursor: pointer;
-            transition: border var(--transition);
-        }
-        .task-form-options select:focus,
-        .task-form-options input:focus { border-color: var(--primary); }
-        .task-form-options input[type="date"]::-webkit-calendar-picker-indicator,
-        .task-form-options input[type="time"]::-webkit-calendar-picker-indicator {
-            filter: invert(0.7);
-            cursor: pointer;
-        }
-        .separator-dot {
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--text-tertiary);
-            flex-shrink: 0;
-        }
-
-        /* Filters */
-        .filters-bar {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-        }
+        .filters-bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 10px; }
         .filters { display: flex; gap: 4px; flex-wrap: wrap; }
         .filter-btn {
-            background: transparent;
-            border: 1px solid transparent;
-            color: var(--text-secondary);
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.76rem;
-            font-weight: 500;
-            transition: all var(--transition);
-            font-family: var(--font);
-            white-space: nowrap;
+            background: transparent; border: 1px solid transparent; color: var(--text-secondary);
+            padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.76rem;
+            font-weight: 500; transition: all var(--transition); font-family: var(--font); white-space: nowrap;
         }
-        .filter-btn:hover { color: var(--text); background: var(--surface-elevated); }
-        .filter-btn.active {
-            background: var(--primary-muted);
-            color: var(--primary);
-            border-color: var(--primary);
-            font-weight: 600;
-        }
+        .filter-btn:hover { color: var(--text); background: var(--surface-hover); }
+        .filter-btn.active { background: var(--primary-muted); color: var(--primary); border-color: var(--primary); font-weight: 600; }
         .search-input {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.76rem;
-            outline: none;
-            width: 130px;
-            transition: all var(--transition);
-            font-family: var(--font);
+            background: var(--surface); border: 1px solid var(--border); color: var(--text);
+            padding: 6px 12px; border-radius: 6px; font-size: 0.76rem; outline: none;
+            width: 130px; transition: all var(--transition); font-family: var(--font);
         }
         .search-input:focus { border-color: var(--info); width: 160px; }
-        .search-input::placeholder { color: var(--text-tertiary); }
-
-        /* Task List */
         .task-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            max-height: 42vh;
-            overflow-y: auto;
-            padding-right: 2px;
-            scroll-behavior: smooth;
+            display: flex; flex-direction: column; gap: 6px;
+            max-height: 44vh; overflow-y: auto; padding-right: 2px;
         }
-        .task-list::-webkit-scrollbar { width: 5px; }
-        .task-list::-webkit-scrollbar-track { background: transparent; }
-        .task-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
-        .task-list::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
-
         .task-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            background: var(--surface);
-            padding: 12px 14px;
-            border-radius: var(--radius);
-            border: 1px solid transparent;
-            transition: all var(--transition);
+            display: flex; align-items: flex-start; gap: 10px;
+            background: var(--surface); padding: 12px 14px; border-radius: var(--radius);
+            border: 1px solid transparent; transition: all var(--transition);
             animation: slideIn 0.3s ease;
         }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
         .task-item.completed { opacity: 0.45; }
         .task-item.completed .task-text { text-decoration: line-through; color: var(--text-tertiary); }
         .task-item.overdue { border-color: rgba(248,81,73,0.35); background: var(--danger-muted); }
         .task-item.due-today { border-color: rgba(210,153,29,0.35); background: var(--warning-muted); }
-        .task-item:hover { border-color: var(--border-hover); }
-
         .checkbox {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            border: 2px solid var(--border);
-            cursor: pointer;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.15s;
-            margin-top: 2px;
+            width: 20px; height: 20px; border-radius: 4px;
+            border: 2px solid var(--border); cursor: pointer; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center; margin-top: 2px;
         }
-        .checkbox:hover { border-color: var(--primary); }
         .task-item.completed .checkbox { background: var(--primary); border-color: var(--primary); }
         .task-item.completed .checkbox::after {
-            content: '';
-            width: 5px;
-            height: 9px;
-            border: solid #000;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-            margin-top: -2px;
+            content: ''; width: 5px; height: 9px; border: solid #000;
+            border-width: 0 2px 2px 0; transform: rotate(45deg); margin-top: -2px;
         }
-
         .task-content { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
-        .task-text { font-size: 0.88rem; word-break: break-word; cursor: pointer; line-height: 1.4; font-weight: 400; }
-        .task-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-            font-size: 0.7rem;
-            color: var(--text-tertiary);
-            font-family: var(--font-mono);
-            letter-spacing: 0.02em;
+        .task-text { font-size: 0.88rem; word-break: break-word; line-height: 1.4; cursor: pointer; }
+        .task-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.7rem; color: var(--text-tertiary); font-family: var(--font-mono); }
+        .tag-category {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 2px 8px; border-radius: 4px; font-weight: 600;
+            font-size: 0.66rem; border: 1px solid; font-family: var(--font);
+            text-transform: uppercase; letter-spacing: 0.02em;
         }
-        .task-category {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.68rem;
-            border: 1px solid;
-            font-family: var(--font);
-            letter-spacing: 0.01em;
-            text-transform: uppercase;
+        .tag-due.overdue-text { color: var(--danger); }
+        .tag-due.today-text { color: var(--warning); }
+        .task-delete {
+            background: transparent; border: none; color: var(--text-tertiary);
+            cursor: pointer; font-size: 1rem; padding: 4px 6px; border-radius: 4px;
+            opacity: 0; transition: all 0.15s; flex-shrink: 0; margin-top: 1px;
         }
-        .task-due { display: inline-flex; align-items: center; gap: 3px; font-weight: 600; }
-        .task-due.overdue-text { color: var(--danger); }
-        .task-due.today-text { color: var(--warning); }
-        .task-notif-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--info);
-            flex-shrink: 0;
-        }
-        .delete-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-tertiary);
-            cursor: pointer;
-            font-size: 0.85rem;
-            padding: 4px 6px;
-            border-radius: 4px;
-            opacity: 0;
-            transition: all 0.15s;
-            flex-shrink: 0;
-            margin-top: 2px;
-            font-family: var(--font);
-        }
-        .task-item:hover .delete-btn { opacity: 0.6; }
-        .delete-btn:hover { opacity: 1 !important; color: var(--danger); background: var(--danger-muted); }
-
-        .empty-state {
-            text-align: center;
-            padding: 48px 20px;
-            color: var(--text-tertiary);
-        }
-        .empty-state .state-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 14px;
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-        }
-        .empty-state p { font-size: 0.85rem; font-weight: 400; }
-
-        .shimmer {
-            background: linear-gradient(90deg, var(--surface) 25%, var(--surface-elevated) 50%, var(--surface) 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-            border-radius: var(--radius);
-            height: 48px;
-        }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-
-        /* Toast */
+        .task-item:hover .task-delete { opacity: 0.5; }
+        .task-delete:hover { opacity: 1 !important; color: var(--danger); background: var(--danger-muted); }
+        .empty-state { text-align: center; padding: 48px 20px; color: var(--text-tertiary); }
         .toast {
-            position: fixed;
-            bottom: 28px;
-            left: 50%;
+            position: fixed; bottom: 28px; left: 50%;
             transform: translateX(-50%) translateY(120px);
-            background: var(--surface-elevated);
-            color: var(--text);
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-            z-index: 1000;
-            pointer-events: none;
-            font-family: var(--font);
+            background: var(--surface-hover); color: var(--text);
+            padding: 12px 24px; border-radius: 8px; font-size: 0.82rem;
+            font-weight: 500; box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+            transition: transform 0.3s ease; z-index: 1000; pointer-events: none;
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
-
         .hidden { display: none !important; }
-
-        @media (max-width: 480px) {
-            .auth-form { padding: 24px 18px; }
-            header h1 { font-size: 1.1rem; }
+        @media (max-width: 500px) {
+            .auth-container { padding: 28px 18px; }
             .filters-bar { flex-direction: column; align-items: stretch; }
             .search-input { width: 100%; }
             .search-input:focus { width: 100%; }
-            .panel-row { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
     <div class="app" id="app">
-        <!-- Auth Screen -->
-        <div class="auth-screen" id="authScreen">
-            <div class="auth-logo">
-                <svg viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="none"/><path d="M30 55l10-10 10 10 20-20" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <!-- ==================== LOGIN SCREEN ==================== -->
+        <div class="auth-container" id="loginScreen">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9 12l2 2 4-4" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="3" y="3" width="18" height="18" rx="4" stroke="#000" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <h2>Iniciar sesion</h2>
+                <p>Acceda a su cuenta para gestionar sus tareas</p>
             </div>
-            <h1>Tareas Pro</h1>
-            <p class="subtitle">Gestor profesional de tareas con categorias, fechas limite, notificaciones push y sincronizacion en tiempo real.</p>
-            <div class="auth-form" id="authForm">
-                <input type="email" class="input-field" id="authEmail" placeholder="Correo electronico" autocomplete="email">
-                <input type="password" class="input-field" id="authPassword" placeholder="Contrasena (min. 6 caracteres)" autocomplete="current-password">
-                <div class="auth-error" id="authError"></div>
-                <button class="btn btn-primary" id="authLoginBtn">Iniciar sesion</button>
-                <button class="btn btn-secondary" id="authRegisterBtn">Crear cuenta</button>
-                <div class="auth-divider">o</div>
-                <button class="btn btn-info" id="authGuestBtn">Acceso como invitado</button>
+            <div class="auth-error-banner" id="loginError"></div>
+            <form class="auth-form" id="loginForm" autocomplete="on">
+                <div class="form-group">
+                    <label for="loginEmail">Correo electronico</label>
+                    <div class="input-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                        <input type="email" class="input-field" id="loginEmail" placeholder="usuario@correo.com" autocomplete="email" inputmode="email">
+                    </div>
+                    <div class="field-error" id="loginEmailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Contrasena</label>
+                    <div class="input-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" class="input-field" id="loginPassword" placeholder="Su contrasena" autocomplete="current-password">
+                    </div>
+                    <div class="field-error" id="loginPasswordError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="loginSubmitBtn">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Ingresar
+                </button>
+            </form>
+            <div class="auth-switch">
+                No tiene cuenta? <button id="goToRegister">Crear una cuenta</button>
+            </div>
+            <div class="divider" style="margin-top:16px;">o</div>
+            <button class="btn btn-secondary" id="guestLoginBtn" style="margin-top:12px;">
+                <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 21v-1a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                Acceso como invitado
+            </button>
+        </div>
+
+        <!-- ==================== REGISTER SCREEN ==================== -->
+        <div class="auth-container hidden" id="registerScreen">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                </div>
+                <h2>Crear cuenta</h2>
+                <p>Registrese para comenzar a gestionar sus tareas</p>
+            </div>
+            <div class="auth-error-banner" id="registerError"></div>
+            <div class="auth-success-banner" id="registerSuccess"></div>
+            <form class="auth-form" id="registerForm" autocomplete="on">
+                <div class="form-group">
+                    <label for="registerEmail">Correo electronico</label>
+                    <div class="input-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                        <input type="email" class="input-field" id="registerEmail" placeholder="usuario@correo.com" autocomplete="email" inputmode="email">
+                    </div>
+                    <div class="field-error" id="registerEmailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Contrasena</label>
+                    <div class="input-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" class="input-field" id="registerPassword" placeholder="Minimo 6 caracteres" autocomplete="new-password">
+                    </div>
+                    <div class="field-error" id="registerPasswordError"></div>
+                    <div class="field-hint">Debe contener al menos 6 caracteres</div>
+                </div>
+                <div class="form-group">
+                    <label for="registerPasswordConfirm">Confirmar contrasena</label>
+                    <div class="input-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="11" width="18" height="11" rx="2"/></svg>
+                        <input type="password" class="input-field" id="registerPasswordConfirm" placeholder="Repita su contrasena" autocomplete="new-password">
+                    </div>
+                    <div class="field-error" id="registerConfirmError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="registerSubmitBtn">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Crear cuenta
+                </button>
+            </form>
+            <div class="auth-switch">
+                Ya tiene cuenta? <button id="goToLogin">Iniciar sesion</button>
             </div>
         </div>
 
-        <!-- Main App -->
+        <!-- ==================== MAIN APP ==================== -->
         <div class="hidden" id="mainApp">
-            <header>
+            <header class="app-header">
                 <div class="header-brand">
                     <div class="header-logo">
-                        <svg viewBox="0 0 100 100"><path d="M30 55l10-10 10 10 20-20" stroke="#000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="18" height="18" rx="4" stroke="#000" stroke-width="2" fill="none"/></svg>
                     </div>
                     <h1>Tareas Pro</h1>
                 </div>
                 <div class="header-right">
-                    <div class="badge" id="connBadge"><span class="dot"></span><span id="connLabel">Conectando...</span></div>
-                    <div class="badge notif-badge" id="notifStatusBadge" title="Estado de notificaciones"><span class="dot"></span><span id="notifStatusLabel">Notif.</span></div>
-                    <div class="user-menu" id="userMenu" title="Cerrar sesion">
+                    <div class="badge" id="connBadge"><span class="dot"></span><span id="connLabel">Conectando</span></div>
+                    <button class="user-btn" id="logoutBtn" title="Cerrar sesion">
                         <div class="avatar" id="userAvatar">?</div>
                         <span id="userEmailShort">...</span>
-                    </div>
+                    </button>
                 </div>
             </header>
-            <div class="stats-bar">
-                <span class="s-pending"><span id="pendingCount">0</span> pendientes</span>
-                <span class="s-done"><span id="doneCount">0</span> completadas</span>
-                <span class="s-overdue"><span id="overdueCount">0</span> vencidas</span>
+            <div class="stats-row">
+                <span class="stat-pending"><span id="pendingCount">0</span> pendientes</span>
+                <span class="stat-done"><span id="doneCount">0</span> completadas</span>
+                <span class="stat-overdue"><span id="overdueCount">0</span> vencidas</span>
             </div>
-
-            <!-- Notification Panel -->
-            <div class="panel" id="notifPanel">
-                <div class="panel-header">Configuracion de notificaciones</div>
+            <div class="panel">
+                <div class="panel-title">Notificaciones</div>
                 <div class="panel-row">
                     <div class="toggle-label" id="notifToggle">
                         <div class="toggle-switch" id="notifSwitch"></div>
@@ -705,16 +558,13 @@
                         <option value="1hour">1 hora antes</option>
                         <option value="1day">1 dia antes</option>
                     </select>
-                    <button class="btn btn-secondary btn-sm" id="testNotifBtn">Probar notificacion</button>
+                    <button class="btn btn-secondary" style="width:auto;padding:6px 14px;font-size:0.78rem;" id="testNotifBtn">Probar</button>
                 </div>
-                <div class="panel-info" id="notifInfoText">Configure cuando recibir avisos de sus tareas con fecha.</div>
             </div>
-
-            <!-- Task Form -->
-            <div class="task-form-container" id="taskFormContainer">
+            <div class="task-form">
                 <div class="task-form-row">
                     <input type="text" id="taskInput" placeholder="Nueva tarea..." autocomplete="off" maxlength="200">
-                    <button class="btn btn-primary" id="submitBtn" style="padding:8px 18px;">Agregar</button>
+                    <button class="btn btn-primary" id="submitBtn" style="width:auto;padding:8px 18px;">Agregar</button>
                 </div>
                 <div class="task-form-options">
                     <select id="categorySelect">
@@ -726,29 +576,22 @@
                         <option value="compras">Compras</option>
                         <option value="urgente">Urgente</option>
                     </select>
-                    <span class="separator-dot"></span>
                     <input type="date" id="dueDateInput" title="Fecha de vencimiento">
-                    <input type="time" id="dueTimeInput" title="Hora de vencimiento" value="12:00">
-                    <button class="btn-icon" id="clearDueBtn" title="Limpiar fecha">&times;</button>
+                    <input type="time" id="dueTimeInput" title="Hora" value="12:00">
+                    <button class="btn btn-secondary" id="clearDueBtn" style="width:auto;padding:6px 10px;font-size:0.8rem;" title="Limpiar">&times;</button>
                 </div>
             </div>
-
-            <!-- Filters -->
             <div class="filters-bar">
                 <div class="filters">
                     <button class="filter-btn active" data-filter="all">Todas</button>
                     <button class="filter-btn" data-filter="pending">Pendientes</button>
                     <button class="filter-btn" data-filter="completed">Completadas</button>
                     <button class="filter-btn" data-filter="overdue">Vencidas</button>
-                    <button class="filter-btn" data-filter="today">Para hoy</button>
+                    <button class="filter-btn" data-filter="today">Hoy</button>
                 </div>
                 <input type="text" class="search-input" id="searchInput" placeholder="Buscar...">
             </div>
-
-            <!-- Task List -->
-            <div class="task-list" id="taskList">
-                <div class="shimmer"></div><div class="shimmer"></div><div class="shimmer"></div>
-            </div>
+            <div class="task-list" id="taskList"></div>
             <div class="toast" id="toast"></div>
         </div>
     </div>
@@ -757,7 +600,6 @@
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
         import { getDatabase, ref, onValue, push, set, update, remove, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';
         import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInAnonymously, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
-        import { getMessaging, getToken, onMessage, deleteToken } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging.js';
 
         const firebaseConfig = {
             apiKey: "AIzaSyD2_QCBCD7yteJkscUG3rDg3DQIIx-qFo0",
@@ -766,498 +608,354 @@
             projectId: "tareas-1b62c",
             storageBucket: "tareas-1b62c.firebasestorage.app",
             messagingSenderId: "76193799127",
-            appId: "1:76193799127:web:d7b53400278c6ab62e8992",
-            measurementId: "G-06LCDRHNLS"
+            appId: "1:76193799127:web:d7b53400278c6ab62e8992"
         };
 
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const auth = getAuth(app);
-        const messaging = getMessaging(app);
 
         // State
-        let tasks = [];
-        let currentFilter = 'all';
-        let searchQuery = '';
-        let isOnline = true;
-        let initialLoadDone = false;
-        let currentUser = null;
-        let userTasksRef = null;
-        let fcmToken = null;
-        let notificationsEnabled = false;
-        let notificationPermission = 'default';
-        let notificationTiming = 'at-time';
-
+        let tasks = [], currentFilter = 'all', searchQuery = '', isOnline = true, loaded = false;
+        let currentUser = null, tasksRef = null;
         const CATEGORIES = {
-            'trabajo': { color: '#58a6ff', name: 'Trabajo' },
-            'personal': { color: '#bc8cff', name: 'Personal' },
-            'estudio': { color: '#e3b341', name: 'Estudio' },
-            'salud': { color: '#f85149', name: 'Salud' },
-            'compras': { color: '#3fb950', name: 'Compras' },
-            'urgente': { color: '#f85149', name: 'URGENTE' }
+            trabajo:{color:'#58a6ff',label:'Trabajo'}, personal:{color:'#bc8cff',label:'Personal'},
+            estudio:{color:'#e3b341',label:'Estudio'}, salud:{color:'#f85149',label:'Salud'},
+            compras:{color:'#3fb950',label:'Compras'}, urgente:{color:'#f778ba',label:'Urgente'}
         };
 
-        // DOM refs
-        const authScreen = document.getElementById('authScreen');
-        const mainApp = document.getElementById('mainApp');
-        const authEmail = document.getElementById('authEmail');
-        const authPassword = document.getElementById('authPassword');
-        const authError = document.getElementById('authError');
-        const taskInput = document.getElementById('taskInput');
-        const taskList = document.getElementById('taskList');
-        const pendingCount = document.getElementById('pendingCount');
-        const doneCount = document.getElementById('doneCount');
-        const overdueCount = document.getElementById('overdueCount');
-        const toast = document.getElementById('toast');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const connBadge = document.getElementById('connBadge');
-        const connLabel = document.getElementById('connLabel');
-        const submitBtn = document.getElementById('submitBtn');
-        const categorySelect = document.getElementById('categorySelect');
-        const dueDateInput = document.getElementById('dueDateInput');
-        const dueTimeInput = document.getElementById('dueTimeInput');
-        const clearDueBtn = document.getElementById('clearDueBtn');
-        const searchInput = document.getElementById('searchInput');
-        const userMenu = document.getElementById('userMenu');
-        const userAvatar = document.getElementById('userAvatar');
-        const userEmailShort = document.getElementById('userEmailShort');
-        const notifStatusBadge = document.getElementById('notifStatusBadge');
-        const notifStatusLabel = document.getElementById('notifStatusLabel');
-        const notifSwitch = document.getElementById('notifSwitch');
-        const notifToggleLabel = document.getElementById('notifToggleLabel');
-        const notifTimingSelect = document.getElementById('notifTimingSelect');
-        const testNotifBtn = document.getElementById('testNotifBtn');
-        const notifInfoText = document.getElementById('notifInfoText');
-        const notifToggle = document.getElementById('notifToggle');
+        // DOM helpers
+        const $ = s => document.getElementById(s);
+        const loginScreen = $('loginScreen');
+        const registerScreen = $('registerScreen');
+        const mainApp = $('mainApp');
 
         // Toast
-        let toastTimeout;
-        function showToast(msg) {
-            toast.textContent = msg;
-            toast.classList.add('show');
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => toast.classList.remove('show'), 2800);
+        const toast = $('toast');
+        let toastTimer;
+        function showToast(m) {
+            toast.textContent = m; toast.classList.add('show');
+            clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
         }
 
-        // Formatting
-        function formatTime(timestamp) {
-            if (!timestamp) return '';
-            const d = new Date(timestamp);
-            const now = new Date();
-            const diffMin = Math.floor((now - d) / 60000);
-            if (diffMin < 1) return 'Ahora';
-            if (diffMin < 60) return `Hace ${diffMin}m`;
-            const diffH = Math.floor(diffMin / 60);
-            if (diffH < 24) return `Hace ${diffH}h`;
-            return d.toLocaleDateString('es-MX', { day:'numeric', month:'short' });
+        // ==================== AUTH SCREENS LOGIC ====================
+        function showScreen(screen) {
+            loginScreen.classList.add('hidden');
+            registerScreen.classList.add('hidden');
+            mainApp.classList.add('hidden');
+            screen.classList.remove('hidden');
         }
 
-        function formatDueDate(dateStr, timeStr) {
-            if (!dateStr) return null;
-            const time = timeStr || '23:59';
-            const due = new Date(`${dateStr}T${time}:00`);
-            const now = new Date();
-            const today = new Date(); today.setHours(0,0,0,0);
-            const diffTime = due.getTime() - now.getTime();
-            const diffDays = Math.ceil((due.getTime() - today.getTime()) / 86400000);
-            if (diffTime < 0) return { text: 'Vencida', className: 'overdue-text', isOverdue: true };
-            if (diffDays === 0) return { text: `Hoy, ${time}`, className: 'today-text', isToday: true };
-            if (diffDays === 1) return { text: `Manana, ${time}`, className: '', isUpcoming: true };
-            if (diffDays <= 7) return { text: `${diffDays} dias`, className: '', isUpcoming: true };
-            return { text: due.toLocaleDateString('es-MX', { day:'numeric', month:'short' }), className: '' };
+        // Clear errors
+        function clearAuthErrors() {
+            ['loginError','loginEmailError','loginPasswordError','registerError','registerEmailError','registerPasswordError','registerConfirmError','registerSuccess'].forEach(id => {
+                const el = $(id); if (el) { el.textContent = ''; el.classList.remove('visible'); }
+            });
         }
 
-        function escapeHtml(str) {
-            const d = document.createElement('div');
-            d.textContent = str;
-            return d.innerHTML;
+        // Show error banner
+        function showBanner(id, msg) {
+            const el = $(id);
+            if (el) { el.textContent = msg; el.classList.add('visible'); }
         }
 
-        function categoryBadgeHTML(catKey) {
-            if (!catKey || !CATEGORIES[catKey]) return '';
-            const cat = CATEGORIES[catKey];
-            return `<span class="task-category" style="color:${cat.color};border-color:${cat.color}33;background:${cat.color}15;">${cat.name}</span>`;
-        }
+        // ==================== NAVIGATION ====================
+        $('goToRegister').addEventListener('click', (e) => {
+            e.preventDefault();
+            clearAuthErrors();
+            document.querySelectorAll('#loginForm .input-field').forEach(i => i.classList.remove('error'));
+            $('loginEmail').value = ''; $('loginPassword').value = '';
+            showScreen(registerScreen);
+            $('registerEmail').focus();
+        });
 
-        function updateConnectionStatus(online) {
-            isOnline = online;
-            connBadge.className = 'badge ' + (online ? 'online' : 'offline');
-            connLabel.textContent = online ? 'Conectado' : 'Sin conexion';
-        }
+        $('goToLogin').addEventListener('click', (e) => {
+            e.preventDefault();
+            clearAuthErrors();
+            document.querySelectorAll('#registerForm .input-field').forEach(i => i.classList.remove('error'));
+            $('registerEmail').value = ''; $('registerPassword').value = ''; $('registerPasswordConfirm').value = '';
+            showScreen(loginScreen);
+            $('loginEmail').focus();
+        });
 
-        // Notifications
-        function updateNotifUI() {
-            if (notificationPermission === 'granted' && notificationsEnabled && fcmToken) {
-                notifStatusBadge.className = 'badge notif-active';
-                notifStatusLabel.textContent = 'Notif. ON';
-                notifSwitch.classList.add('active');
-                notifToggleLabel.textContent = 'Notificaciones activadas';
-                notifInfoText.textContent = `Recibira avisos ${getTimingLabel(notificationTiming)} de sus tareas con fecha.`;
-            } else if (notificationPermission === 'denied') {
-                notifStatusBadge.className = 'badge';
-                notifStatusLabel.textContent = 'Bloqueadas';
-                notifSwitch.classList.remove('active');
-                notifToggleLabel.textContent = 'Notificaciones bloqueadas';
-                notifInfoText.textContent = 'Debe permitir notificaciones en la configuracion de su navegador.';
+        // ==================== LOGIN ====================
+        $('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearAuthErrors();
+            const email = $('loginEmail').value.trim();
+            const pass = $('loginPassword').value;
+            let valid = true;
+
+            if (!email) { $('loginEmail').classList.add('error'); showBanner('loginEmailError','Ingrese su correo electronico'); valid = false; }
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $('loginEmail').classList.add('error'); showBanner('loginEmailError','Formato de correo invalido'); valid = false; }
+            else { $('loginEmail').classList.remove('error'); }
+
+            if (!pass) { $('loginPassword').classList.add('error'); showBanner('loginPasswordError','Ingrese su contrasena'); valid = false; }
+            else { $('loginPassword').classList.remove('error'); }
+
+            if (!valid) return;
+
+            $('loginSubmitBtn').disabled = true;
+            $('loginSubmitBtn').textContent = 'Ingresando...';
+
+            try {
+                const cred = await signInWithEmailAndPassword(auth, email, pass);
+                console.log('Login exitoso:', cred.user.email);
+            } catch (error) {
+                console.error('Login error:', error.code);
+                const map = {
+                    'auth/invalid-credential': 'Correo o contrasena incorrectos.',
+                    'auth/user-not-found': 'No existe cuenta con este correo.',
+                    'auth/wrong-password': 'Contrasena incorrecta.',
+                    'auth/invalid-email': 'Formato de correo invalido.',
+                    'auth/user-disabled': 'Cuenta deshabilitada.',
+                    'auth/too-many-requests': 'Demasiados intentos. Espere un momento.',
+                    'auth/operation-not-allowed': 'Servicio no habilitado en Firebase.',
+                    'auth/network-request-failed': 'Error de red. Verifique conexion.'
+                };
+                showBanner('loginError', map[error.code] || `Error: ${error.message}`);
+                $('loginPassword').classList.add('error');
+            } finally {
+                $('loginSubmitBtn').disabled = false;
+                $('loginSubmitBtn').innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Ingresar';
+            }
+        });
+
+        // ==================== REGISTER ====================
+        $('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearAuthErrors();
+            const email = $('registerEmail').value.trim();
+            const pass = $('registerPassword').value;
+            const confirm = $('registerPasswordConfirm').value;
+            let valid = true;
+
+            if (!email) { $('registerEmail').classList.add('error'); showBanner('registerEmailError','Ingrese su correo'); valid = false; }
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $('registerEmail').classList.add('error'); showBanner('registerEmailError','Formato invalido'); valid = false; }
+            else { $('registerEmail').classList.remove('error'); }
+
+            if (!pass) { $('registerPassword').classList.add('error'); showBanner('registerPasswordError','Ingrese una contrasena'); valid = false; }
+            else if (pass.length < 6) { $('registerPassword').classList.add('error'); showBanner('registerPasswordError','Minimo 6 caracteres'); valid = false; }
+            else { $('registerPassword').classList.remove('error'); }
+
+            if (!confirm) { $('registerPasswordConfirm').classList.add('error'); showBanner('registerConfirmError','Confirme su contrasena'); valid = false; }
+            else if (pass !== confirm) { $('registerPasswordConfirm').classList.add('error'); showBanner('registerConfirmError','Las contrasenas no coinciden'); valid = false; }
+            else { $('registerPasswordConfirm').classList.remove('error'); }
+
+            if (!valid) return;
+
+            $('registerSubmitBtn').disabled = true;
+            $('registerSubmitBtn').textContent = 'Creando cuenta...';
+
+            try {
+                const cred = await createUserWithEmailAndPassword(auth, email, pass);
+                console.log('Registro exitoso:', cred.user.email);
+                $('registerSuccess').textContent = 'Cuenta creada exitosamente. Redirigiendo...';
+                $('registerSuccess').classList.add('visible');
+                $('registerEmail').value = '';
+                $('registerPassword').value = '';
+                $('registerPasswordConfirm').value = '';
+                // La app cambia automaticamente via onAuthStateChanged
+            } catch (error) {
+                console.error('Register error:', error.code);
+                const map = {
+                    'auth/email-already-in-use': 'Este correo ya esta registrado. Inicie sesion.',
+                    'auth/invalid-email': 'Formato de correo invalido.',
+                    'auth/operation-not-allowed': 'Registro no habilitado en Firebase Console.',
+                    'auth/weak-password': 'Contrasena muy debil. Use al menos 6 caracteres.',
+                    'auth/network-request-failed': 'Error de red. Verifique su conexion.'
+                };
+                showBanner('registerError', map[error.code] || `Error: ${error.message}`);
+                $('registerEmail').classList.add('error');
+            } finally {
+                $('registerSubmitBtn').disabled = false;
+                $('registerSubmitBtn').innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Crear cuenta';
+            }
+        });
+
+        // ==================== GUEST LOGIN ====================
+        $('guestLoginBtn').addEventListener('click', async () => {
+            clearAuthErrors();
+            $('guestLoginBtn').disabled = true;
+            $('guestLoginBtn').textContent = 'Conectando...';
+            try {
+                await signInAnonymously(auth);
+            } catch (e) {
+                console.error('Guest error:', e);
+                showBanner('loginError', 'Error al acceder como invitado.');
+            } finally {
+                $('guestLoginBtn').disabled = false;
+                $('guestLoginBtn').innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 21v-1a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg> Acceso como invitado';
+            }
+        });
+
+        // ==================== AUTH STATE OBSERVER ====================
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                showMainApp(user);
             } else {
-                notifStatusBadge.className = 'badge';
-                notifStatusLabel.textContent = 'Notif. OFF';
-                notifSwitch.classList.remove('active');
-                notifToggleLabel.textContent = 'Activar notificaciones';
-                notifInfoText.textContent = 'Active las notificaciones para recibir avisos de sus tareas.';
+                showScreen(loginScreen);
+                $('loginEmail').focus();
             }
+        });
+
+        // ==================== MAIN APP ====================
+        function showMainApp(user) {
+            currentUser = user;
+            showScreen(mainApp);
+            const email = user.email || (user.isAnonymous ? 'Invitado' : 'Usuario');
+            $('userEmailShort').textContent = email.length > 16 ? email.slice(0,14)+'...' : email;
+            $('userAvatar').textContent = email.charAt(0).toUpperCase();
+            startSync();
+            $('taskInput').focus();
         }
 
-        function getTimingLabel(timing) {
-            const labels = {
-                'at-time': 'en el momento exacto',
-                '15min': '15 minutos antes',
-                '30min': '30 minutos antes',
-                '1hour': '1 hora antes',
-                '1day': '1 dia antes'
-            };
-            return labels[timing] || timing;
-        }
-
-        async function requestPermission() {
-            if (!('Notification' in window)) { showToast('Navegador no compatible'); return false; }
-            try {
-                const perm = await Notification.requestPermission();
-                notificationPermission = perm;
-                if (perm === 'granted') { showToast('Permiso concedido'); return true; }
-                else { showToast('Permiso denegado'); return false; }
-            } catch (e) { return false; }
-        }
-
-        async function getFCMToken() {
-            try {
-                const registration = await navigator.serviceWorker.ready;
-                const token = await getToken(messaging, {
-                    vapidKey: 'BC4LZHNRxCtPQmCzQVtGzHdJ5KzLcVXG2qYqPqKj8rA9pZqWzLcVXG2qYqPqKj8rA9pZqWzLcVXG2qYqPqKj8rA',
-                    serviceWorkerRegistration: registration
-                });
-                if (token) { fcmToken = token; await saveFCMToken(token); return token; }
-                return null;
-            } catch (e) { console.error('FCM token error:', e); return null; }
-        }
-
-        async function saveFCMToken(token) {
+        // ==================== SYNC ====================
+        function startSync() {
             if (!currentUser) return;
-            try {
-                await set(ref(db, `users/${currentUser.uid}/fcmTokens/${token}`), {
-                    token, createdAt: serverTimestamp(), platform: navigator.platform
-                });
-            } catch (e) { console.error(e); }
-        }
-
-        async function removeFCMToken() {
-            if (!currentUser || !fcmToken) return;
-            try { await remove(ref(db, `users/${currentUser.uid}/fcmTokens/${fcmToken}`)); } catch (e) {}
-        }
-
-        async function enableNotifications() {
-            if (notificationPermission !== 'granted') { const g = await requestPermission(); if (!g) return false; }
-            const token = await getFCMToken();
-            if (token) { notificationsEnabled = true; await saveSettings(); updateNotifUI(); scheduleAll(); showToast('Notificaciones activadas'); return true; }
-            return false;
-        }
-
-        async function disableNotifications() {
-            notificationsEnabled = false;
-            if (fcmToken) { await removeFCMToken(); try { await deleteToken(messaging); } catch(e){} fcmToken = null; }
-            await saveSettings(); cancelAll(); updateNotifUI(); showToast('Notificaciones desactivadas');
-        }
-
-        async function saveSettings() {
-            if (!currentUser) return;
-            try {
-                await set(ref(db, `users/${currentUser.uid}/notificationSettings`), {
-                    enabled: notificationsEnabled, timing: notificationTiming, updatedAt: serverTimestamp()
-                });
-            } catch(e){}
-        }
-
-        async function loadSettings() {
-            if (!currentUser) return;
-            return new Promise(resolve => {
-                onValue(ref(db, `users/${currentUser.uid}/notificationSettings`), snap => {
-                    const d = snap.val();
-                    if (d) { notificationsEnabled = d.enabled || false; notificationTiming = d.timing || 'at-time'; notifTimingSelect.value = notificationTiming; }
-                    resolve();
-                }, { onlyOnce: true });
-            });
-        }
-
-        // Local notification scheduling
-        let scheduled = new Map();
-        function scheduleOne(task) {
-            if (!notificationsEnabled || !task.dueDate || task.completed) return;
-            cancelOne(task.id);
-            const time = task.dueTime || '23:59';
-            const due = new Date(`${task.dueDate}T${time}:00`);
-            let notify;
-            switch(notificationTiming) {
-                case '15min': notify = new Date(due.getTime() - 900000); break;
-                case '30min': notify = new Date(due.getTime() - 1800000); break;
-                case '1hour': notify = new Date(due.getTime() - 3600000); break;
-                case '1day': notify = new Date(due.getTime() - 86400000); break;
-                default: notify = due;
-            }
-            const delay = notify.getTime() - Date.now();
-            if (delay <= 0 || delay > 604800000) return;
-            const id = setTimeout(() => { sendLocal(task); scheduled.delete(task.id); }, delay);
-            scheduled.set(task.id, id);
-        }
-        function cancelOne(id) { if (scheduled.has(id)) { clearTimeout(scheduled.get(id)); scheduled.delete(id); } }
-        function scheduleAll() { tasks.forEach(scheduleOne); }
-        function cancelAll() { scheduled.forEach(clearTimeout); scheduled.clear(); }
-        function sendLocal(task) {
-            if (!('Notification' in window) || Notification.permission !== 'granted') return;
-            const cat = task.category && CATEGORIES[task.category];
-            new Notification('Recordatorio de tarea', {
-                body: task.text,
-                icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23161b22"/><path d="M30 55l10-10 10 10 20-20" stroke="%233fb950" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>',
-                badge: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%233fb950"/></svg>',
-                tag: `task-${task.id}`, requireInteraction: true, vibrate: [200,100,200],
-                data: { taskId: task.id }
-            });
-        }
-
-        onMessage(messaging, payload => {
-            if (payload.notification && Notification.permission === 'granted') {
-                new Notification(payload.notification.title, { body: payload.notification.body, requireInteraction: true });
-            }
-        });
-
-        // Render
-        function render() {
-            if (!initialLoadDone || !currentUser) return;
-            let filtered = tasks.filter(t => {
-                if (currentFilter === 'pending') return !t.completed;
-                if (currentFilter === 'completed') return t.completed;
-                if (currentFilter === 'overdue') {
-                    if (t.completed || !t.dueDate) return false;
-                    return new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`) < new Date();
-                }
-                if (currentFilter === 'today') {
-                    if (t.completed || !t.dueDate) return false;
-                    const due = new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`);
-                    const today = new Date(); today.setHours(0,0,0,0);
-                    const tomorrow = new Date(today); tomorrow.setDate(tomorrow.getDate()+1);
-                    return due >= today && due < tomorrow;
-                }
-                return true;
-            });
-            if (searchQuery) {
-                const q = searchQuery.toLowerCase();
-                filtered = filtered.filter(t => t.text.toLowerCase().includes(q) || (t.category && CATEGORIES[t.category]?.name.toLowerCase().includes(q)));
-            }
-            filtered.sort((a,b) => {
-                if (a.dueDate && !b.dueDate) return -1;
-                if (!a.dueDate && b.dueDate) return 1;
-                if (a.dueDate && b.dueDate) return new Date(`${a.dueDate}T${a.dueTime||'23:59'}`) - new Date(`${b.dueDate}T${b.dueTime||'23:59'}`);
-                return (b.createdAt||0) - (a.createdAt||0);
-            });
-
-            taskList.innerHTML = '';
-            if (!filtered.length) {
-                const msgs = { all: ['Sin tareas', 'Cree su primera tarea'], pending: ['Todo al dia', 'No hay tareas pendientes'], completed: ['Vacio', 'Complete tareas para verlas aqui'], overdue: ['Al dia', 'No tiene tareas vencidas'], today: ['Hoy', 'Nada programado para hoy'] };
-                const [title, msg] = msgs[currentFilter] || ['Sin resultados', ''];
-                taskList.innerHTML = `<div class="empty-state"><div class="state-icon">/</div><p><strong>${title}</strong><br>${msg}</p></div>`;
-            }
-            filtered.forEach(t => {
-                const dueInfo = t.dueDate ? formatDueDate(t.dueDate, t.dueTime) : null;
-                const isOverdue = dueInfo?.isOverdue && !t.completed;
-                const isToday = dueInfo?.isToday && !t.completed;
-                const hasNotif = notificationsEnabled && t.dueDate && !t.completed;
-                let cls = 'task-item';
-                if (t.completed) cls += ' completed';
-                if (isOverdue) cls += ' overdue';
-                if (isToday) cls += ' due-today';
-                const div = document.createElement('div');
-                div.className = cls; div.setAttribute('data-id', t.id);
-                div.innerHTML = `
-                    <div class="checkbox" data-action="toggle" data-id="${t.id}"></div>
-                    <div class="task-content">
-                        <span class="task-text" data-action="toggle" data-id="${t.id}">${escapeHtml(t.text)}</span>
-                        <div class="task-meta">
-                            ${categoryBadgeHTML(t.category)}
-                            ${dueInfo ? `<span class="task-due ${dueInfo.className}">${dueInfo.text}</span>` : ''}
-                            ${hasNotif ? '<span class="task-notif-dot" title="Notificacion programada"></span>' : ''}
-                            <span>${formatTime(t.createdAt)}</span>
-                        </div>
-                    </div>
-                    <button class="delete-btn" data-action="delete" data-id="${t.id}" title="Eliminar">&times;</button>`;
-                taskList.appendChild(div);
-            });
-            const p = tasks.filter(t=>!t.completed).length;
-            const d = tasks.filter(t=>t.completed).length;
-            const o = tasks.filter(t=>!t.completed&&t.dueDate&&new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<new Date()).length;
-            pendingCount.textContent = p; doneCount.textContent = d; overdueCount.textContent = o;
-        }
-
-        // Operations
-        async function addTask(text, category, dueDate, dueTime) {
-            if (!userTasksRef) return;
-            const ref = push(userTasksRef);
-            const data = { text: text.trim(), completed: false, createdAt: serverTimestamp(), category: category||null, dueDate: dueDate||null, dueTime: dueTime||null };
-            try {
-                await set(ref, data);
-                showToast('Tarea creada');
-                if (notificationsEnabled && dueDate) scheduleOne({ id: ref.key, text: text.trim(), completed: false, category: category||null, dueDate, dueTime: dueTime||'23:59', createdAt: Date.now() });
-            } catch(e) { showToast('Error al guardar'); }
-        }
-
-        async function toggleTask(id) {
-            const t = tasks.find(x=>x.id===id);
-            if (!t || !userTasksRef) return;
-            try {
-                await update(ref(db, `users/${currentUser.uid}/tasks/${id}`), { completed: !t.completed });
-                if (!t.completed) cancelOne(id); else if (notificationsEnabled && t.dueDate) scheduleOne({...t, completed: false});
-            } catch(e) { showToast('Error de conexion'); }
-        }
-
-        async function deleteTask(id) {
-            if (!userTasksRef) return;
-            try { await remove(ref(db, `users/${currentUser.uid}/tasks/${id}`)); cancelOne(id); showToast('Tarea eliminada'); }
-            catch(e) { showToast('Error de conexion'); }
-        }
-
-        // Events
-        function submitTask() {
-            const text = taskInput.value.trim();
-            if (!text || !currentUser) return;
-            if (text.length > 200) { showToast('Maximo 200 caracteres'); return; }
-            addTask(text, categorySelect.value||null, dueDateInput.value||null, dueTimeInput.value||null);
-            taskInput.value = ''; categorySelect.value = ''; dueDateInput.value = ''; dueTimeInput.value = '12:00';
-            taskInput.focus();
-        }
-        submitBtn.addEventListener('click', submitTask);
-        taskInput.addEventListener('keydown', e => { if (e.key==='Enter') submitTask(); });
-        clearDueBtn.addEventListener('click', ()=>{ dueDateInput.value=''; dueTimeInput.value='12:00'; });
-        taskList.addEventListener('click', e => {
-            const {action, id} = e.target.dataset;
-            if (!action||!id||!currentUser) return;
-            if (action==='toggle') toggleTask(id);
-            if (action==='delete') deleteTask(id);
-        });
-        filterBtns.forEach(b => b.addEventListener('click', ()=>{
-            filterBtns.forEach(x=>x.classList.remove('active'));
-            b.classList.add('active');
-            currentFilter = b.dataset.filter;
-            render();
-        }));
-        searchInput.addEventListener('input', ()=>{ searchQuery = searchInput.value.trim(); render(); });
-        userMenu.addEventListener('click', async ()=>{
-            if (confirm('Cerrar sesion? Se desactivaran las notificaciones.')) {
-                await disableNotifications(); cancelAll(); await signOut(auth).catch(console.error);
-            }
-        });
-        notifToggle.addEventListener('click', async ()=>{ notificationsEnabled ? await disableNotifications() : await enableNotifications(); });
-        notifTimingSelect.addEventListener('change', async ()=>{
-            notificationTiming = notifTimingSelect.value;
-            await saveSettings(); cancelAll(); if (notificationsEnabled) scheduleAll();
-            updateNotifUI(); showToast(`Avisos: ${getTimingLabel(notificationTiming)}`);
-        });
-        testNotifBtn.addEventListener('click', async ()=>{
-            if (!notificationsEnabled) { const ok = await enableNotifications(); if (!ok) return; }
-            if (Notification.permission==='granted') {
-                new Notification('Notificacion de prueba', { body: 'El sistema de notificaciones funciona correctamente.', requireInteraction: false, vibrate: [100,50,100] });
-                showToast('Notificacion de prueba enviada');
-            }
-        });
-
-        // Sync
-        function setupSync() {
-            if (!currentUser) return;
-            userTasksRef = ref(db, `users/${currentUser.uid}/tasks`);
-            onValue(userTasksRef, snap => {
+            tasksRef = ref(db, `users/${currentUser.uid}/tasks`);
+            onValue(tasksRef, snap => {
                 const data = snap.val();
                 const arr = [];
-                if (data) Object.entries(data).forEach(([id,v]) => arr.push({ id, text: v.text||'', completed: v.completed||false, category: v.category||null, dueDate: v.dueDate||null, dueTime: v.dueTime||null, createdAt: v.createdAt||Date.now() }));
+                if (data) Object.entries(data).forEach(([id,v]) => arr.push({
+                    id, text:v.text||'', completed:v.completed||false,
+                    category:v.category||null, dueDate:v.dueDate||null,
+                    dueTime:v.dueTime||null, createdAt:v.createdAt||Date.now()
+                }));
                 tasks = arr;
-                if (!initialLoadDone) initialLoadDone = true;
-                if (notificationsEnabled) { cancelAll(); scheduleAll(); }
+                if (!loaded) loaded = true;
                 render();
-            }, err => { console.error(err); if (!initialLoadDone) { initialLoadDone=true; render(); } });
+            }, err => { console.error('Sync error:',err); if(!loaded){loaded=true;render();} });
         }
 
-        function setupConnection() {
-            onValue(ref(db, '.info/connected'), snap => updateConnectionStatus(snap.val()===true));
+        // ==================== RENDER ====================
+        function render() {
+            if (!loaded || !currentUser) return;
+            let list = [...tasks];
+            if (currentFilter === 'pending') list = list.filter(t=>!t.completed);
+            else if (currentFilter === 'completed') list = list.filter(t=>t.completed);
+            else if (currentFilter === 'overdue') list = list.filter(t=>!t.completed && t.dueDate && new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<new Date());
+            else if (currentFilter === 'today') {
+                const td=new Date(); td.setHours(0,0,0,0);
+                const tm=new Date(td); tm.setDate(tm.getDate()+1);
+                list = list.filter(t=>!t.completed && t.dueDate && new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)>=td && new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<tm);
+            }
+            if (searchQuery) {
+                const q=searchQuery.toLowerCase();
+                list=list.filter(t=>t.text.toLowerCase().includes(q)||(t.category&&CATEGORIES[t.category]?.label.toLowerCase().includes(q)));
+            }
+            list.sort((a,b)=>{
+                if(a.dueDate&&!b.dueDate)return -1;
+                if(!a.dueDate&&b.dueDate)return 1;
+                if(a.dueDate&&b.dueDate)return new Date(`${a.dueDate}T${a.dueTime||'23:59'}`)-new Date(`${b.dueDate}T${b.dueTime||'23:59'}`);
+                return (b.createdAt||0)-(a.createdAt||0);
+            });
+
+            const taskListEl = $('taskList');
+            taskListEl.innerHTML = '';
+            if (!list.length) {
+                taskListEl.innerHTML = `<div class="empty-state" style="color:var(--text-tertiary);padding:48px 20px;text-align:center;">Sin tareas</div>`;
+            }
+            list.forEach(t=>{
+                const due = t.dueDate ? (()=>{
+                    const d=new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`);
+                    const now=new Date();
+                    const today=new Date(); today.setHours(0,0,0,0);
+                    const diffDays=Math.ceil((d-today)/86400000);
+                    if(d<now)return{text:'Vencida',cls:'overdue-text',overdue:true};
+                    if(diffDays===0)return{text:`Hoy ${t.dueTime||'23:59'}`,cls:'today-text',today:true};
+                    if(diffDays===1)return{text:`Manana`,cls:''};
+                    if(diffDays<=7)return{text:`${diffDays} dias`,cls:''};
+                    return{text:d.toLocaleDateString('es-MX',{day:'numeric',month:'short'}),cls:''};
+                })() : null;
+                const overdue=due?.overdue && !t.completed;
+                const today=due?.today && !t.completed;
+                let cls='task-item';
+                if(t.completed)cls+=' completed';
+                if(overdue)cls+=' overdue';
+                if(today)cls+=' due-today';
+                const div=document.createElement('div'); div.className=cls; div.dataset.id=t.id;
+                div.innerHTML=`
+                    <div class="checkbox" data-action="toggle" data-id="${t.id}"></div>
+                    <div class="task-content">
+                        <span class="task-text" data-action="toggle" data-id="${t.id}">${t.text.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</span>
+                        <div class="task-meta">
+                            ${t.category&&CATEGORIES[t.category]?`<span class="tag-category" style="color:${CATEGORIES[t.category].color};border-color:${CATEGORIES[t.category].color}33;background:${CATEGORIES[t.category].color}12;">${CATEGORIES[t.category].label}</span>`:''}
+                            ${due?`<span class="tag-due ${due.cls}">${due.text}</span>`:''}
+                            <span>${t.createdAt?new Date(t.createdAt).toLocaleDateString('es-MX',{day:'numeric',month:'short'}):''}</span>
+                        </div>
+                    </div>
+                    <button class="task-delete" data-action="delete" data-id="${t.id}">&times;</button>`;
+                taskListEl.appendChild(div);
+            });
+            const p=tasks.filter(t=>!t.completed).length, d=tasks.filter(t=>t.completed).length;
+            const o=tasks.filter(t=>!t.completed&&t.dueDate&&new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<new Date()).length;
+            $('pendingCount').textContent=p; $('doneCount').textContent=d; $('overdueCount').textContent=o;
         }
 
-        // Auth
-        async function showMain(user) {
-            currentUser = user;
-            authScreen.classList.add('hidden'); mainApp.classList.remove('hidden');
-            const email = user.email || (user.isAnonymous ? 'Invitado' : 'Usuario');
-            userEmailShort.textContent = email.length>16 ? email.slice(0,14)+'...' : email;
-            userAvatar.textContent = email.charAt(0).toUpperCase();
-            notificationPermission = 'Notification' in window ? Notification.permission : 'denied';
-            await loadSettings(); updateNotifUI();
-            if (notificationsEnabled && notificationPermission==='granted') { await getFCMToken(); updateNotifUI(); }
-            setupSync(); taskInput.focus();
+        // ==================== TASK OPERATIONS ====================
+        async function addTask(text,cat,dueD,dueT){
+            if(!tasksRef)return;
+            const nr=push(tasksRef);
+            try{await set(nr,{text:text.trim(),completed:false,createdAt:serverTimestamp(),category:cat||null,dueDate:dueD||null,dueTime:dueT||null});showToast('Tarea creada');}
+            catch(e){showToast('Error al guardar');}
+        }
+        async function toggleTask(id){
+            const t=tasks.find(x=>x.id===id); if(!t||!tasksRef)return;
+            try{await update(ref(db,`users/${currentUser.uid}/tasks/${id}`),{completed:!t.completed});}
+            catch(e){showToast('Error de conexion');}
+        }
+        async function deleteTask(id){
+            if(!tasksRef)return;
+            try{await remove(ref(db,`users/${currentUser.uid}/tasks/${id}`));showToast('Tarea eliminada');}
+            catch(e){showToast('Error de conexion');}
         }
 
-        function showAuth() {
-            currentUser = null; userTasksRef = null; tasks = []; initialLoadDone = false; cancelAll();
-            authScreen.classList.remove('hidden'); mainApp.classList.add('hidden');
-        }
-
-        document.getElementById('authLoginBtn').addEventListener('click', async ()=>{
-            authError.textContent = '';
-            const e = authEmail.value.trim(), p = authPassword.value;
-            if (!e||!p) { authError.textContent='Complete todos los campos'; return; }
-            try { await signInWithEmailAndPassword(auth, e, p); }
-            catch(ex) { authError.textContent='Credenciales invalidas'; }
+        // ==================== EVENT BINDINGS ====================
+        $('submitBtn').addEventListener('click',()=>{
+            const text=$('taskInput').value.trim();
+            if(!text||!currentUser)return;
+            if(text.length>200){showToast('Maximo 200 caracteres');return;}
+            addTask(text,$('categorySelect').value||null,$('dueDateInput').value||null,$('dueTimeInput').value||null);
+            $('taskInput').value=''; $('categorySelect').value=''; $('dueDateInput').value=''; $('dueTimeInput').value='12:00';
+            $('taskInput').focus();
         });
-        document.getElementById('authRegisterBtn').addEventListener('click', async ()=>{
-            authError.textContent = '';
-            const e = authEmail.value.trim(), p = authPassword.value;
-            if (!e||!p) { authError.textContent='Complete todos los campos'; return; }
-            if (p.length<6) { authError.textContent='Minimo 6 caracteres'; return; }
-            try { await createUserWithEmailAndPassword(auth, e, p); }
-            catch(ex) { authError.textContent = ex.code==='auth/email-already-in-use' ? 'Este correo ya existe' : 'Error al crear cuenta'; }
+        $('taskInput').addEventListener('keydown',e=>{if(e.key==='Enter')$('submitBtn').click();});
+        $('clearDueBtn').addEventListener('click',()=>{$('dueDateInput').value='';$('dueTimeInput').value='12:00';});
+        $('taskList').addEventListener('click',e=>{
+            const {action,id}=e.target.dataset; if(!action||!id||!currentUser)return;
+            if(action==='toggle')toggleTask(id); if(action==='delete')deleteTask(id);
         });
-        document.getElementById('authGuestBtn').addEventListener('click', async ()=>{
-            authError.textContent = '';
-            try { await signInAnonymously(auth); } catch(ex) { authError.textContent='Error de acceso'; }
+        document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{
+            document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+            b.classList.add('active'); currentFilter=b.dataset.filter; render();
+        }));
+        $('searchInput').addEventListener('input',()=>{searchQuery=$('searchInput').value.trim();render();});
+        $('logoutBtn').addEventListener('click',async()=>{
+            if(confirm('Cerrar sesion?')){await signOut(auth).catch(console.error);}
         });
-        onAuthStateChanged(auth, user => user ? showMain(user) : showAuth());
 
-        // Service Worker
-        if ('serviceWorker' in navigator) {
-            const swCode = `
-                const CACHE = 'tareas-pro-v6';
-                importScripts('https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js');
-                importScripts('https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js');
-                firebase.initializeApp({ apiKey:"AIzaSyD2_QCBCD7yteJkscUG3rDg3DQIIx-qFo0", authDomain:"tareas-1b62c.firebaseapp.com", databaseURL:"https://tareas-1b62c-default-rtdb.firebaseio.com", projectId:"tareas-1b62c", storageBucket:"tareas-1b62c.firebasestorage.app", messagingSenderId:"76193799127", appId:"1:76193799127:web:d7b53400278c6ab62e8992" });
-                const msg = firebase.messaging();
-                msg.onBackgroundMessage(payload => {
-                    self.registration.showNotification(payload.notification?.title||'Recordatorio', {
-                        body: payload.notification?.body||'Tarea pendiente',
-                        icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23161b22"/><path d="M30 55l10-10 10 10 20-20" stroke="%233fb950" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>',
-                        requireInteraction: true, vibrate: [200,100,200]
-                    });
-                });
-                self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./']))); });
-                self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(k => Promise.all(k.filter(n=>n!==CACHE).map(n=>caches.delete(n))))); self.clients.claim(); });
-                self.addEventListener('fetch', e => {
-                    if (e.request.method !== 'GET') return;
-                    e.respondWith(caches.match(e.request).then(c => c || fetch(e.request).then(r => { if(r&&r.status===200){const cl=r.clone();caches.open(CACHE).then(ca=>ca.put(e.request,cl));} return r; }).catch(()=>c)));
-                });
-                self.addEventListener('notificationclick', e => { e.notification.close(); e.waitUntil(clients.matchAll({type:'window'}).then(c=>{ for(const cl of c) if(cl.url.includes(self.location.origin)) return cl.focus(); return clients.openWindow(self.location.origin); })); });
+        // ==================== CONNECTION ====================
+        onValue(ref(db,'.info/connected'),snap=>{
+            isOnline=snap.val()===true;
+            $('connBadge').className=`badge ${isOnline?'online':'offline'}`;
+            $('connLabel').textContent=isOnline?'Conectado':'Offline';
+        });
+
+        // ==================== SERVICE WORKER ====================
+        if('serviceWorker'in navigator){
+            const swCode=`
+                const CACHE='tareas-pro-v8';
+                self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./'])));});
+                self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(n=>n!==CACHE).map(n=>caches.delete(n)))));self.clients.claim();});
+                self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request).then(r=>{if(r&&r.status===200){const cl=r.clone();caches.open(CACHE).then(ca=>ca.put(e.request,cl));}return r;}).catch(()=>c)));});
             `;
             navigator.serviceWorker.register(URL.createObjectURL(new Blob([swCode],{type:'application/javascript'}))).catch(()=>{});
         }
 
-        setupConnection();
-        updateConnectionStatus(navigator.onLine);
-        window.addEventListener('online', ()=>updateConnectionStatus(true));
-        window.addEventListener('offline', ()=>updateConnectionStatus(false));
-        document.addEventListener('visibilitychange', ()=>{
-            if (document.visibilityState==='visible' && notificationsEnabled && tasks.length) { cancelAll(); scheduleAll(); }
-        });
+        // Init
+        showScreen(loginScreen);
+        $('loginEmail').focus();
     </script>
 </body>
 </html>
