@@ -2,598 +2,247 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
     <meta name="theme-color" content="#0d1117">
-    <meta name="description" content="Aplicacion profesional de gestion de tareas">
+    <meta name="description" content="App profesional de tareas, calendario y cuenta regresiva">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Tareas Pro">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233fb950'/%3E%3Cstop offset='100%25' style='stop-color:%232ea043'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='112' fill='url(%23g)'/%3E%3Cpath d='M160 280l48-48 64 64 128-128' stroke='%23000' stroke-width='36' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='0.85'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" sizes="192x192" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='36' fill='%233fb950'/%3E%3Cpath d='M60 105l18-18 24 24 48-48' stroke='%23000' stroke-width='14' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='0.85'/%3E%3C/svg%3E">
+    <link rel="manifest" href="/manifest.json">
     <title>Tareas Pro</title>
-    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlRhcmVhcyBQcm8iLAogICJzaG9ydF9uYW1lIjogIlRhcmVhcyIsCiAgInN0YXJ0X3VybCI6ICIuLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzBkMTExNyIsCiAgInRoZW1lX2NvbG9yIjogIiMwZDExMTciLAogICJpY29ucyI6IFt7CiAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgNTEyIDUxMiclM0UlM0NkZWZzJTNFJTNDbGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJScgeTE9JzAlJyB4Mj0nMTAwJScgeTI9JzEwMCclM0UlM0NzdG9wIG9mZnNldD0nMCUnIHN0eWxlPSdzdG9wLWNvbG9yOiUyMzNmYjk1MCcvJTNFJTNDc3RvcCBvZmZzZXQ9JzEwMCUnIHN0eWxlPSdzdG9wLWNvbG9yOiUyMzJlYTA0MycvJTNFJTNDL2xpbmVhckdyYWRpZW50JTNFJTNDL2RlZnMlM0UlM0NyZWN0IHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyByeD0nMTEyJyBmaWxsPSd1cmwoJTIzZyknLyUzRSUzQ3BhdGggZD0nTTE2MCAyODBsNDgtNDggNjQgNjQgMTI4LTEyOCcgc3Ryb2tlPSclMjMwMDAnIHN0cm9rZS13aWR0aD0nMzYnIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgc3Ryb2tlLWxpbmVqb2luPSdyb3VuZCcgZmlsbD0nbm9uZScgb3BhY2l0eT0nMC44NScvJTNFJTNDL3N2ZyUzRSIsCiAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIKICB9XX0=">
     <style>
-        :root {
-            --bg: #0d1117;
-            --surface: #161b22;
-            --surface-hover: #1c2333;
-            --border: #30363d;
-            --border-hover: #484f58;
-            --primary: #3fb950;
-            --primary-hover: #2ea043;
-            --primary-muted: rgba(63,185,80,0.12);
-            --danger: #f85149;
-            --danger-muted: rgba(248,81,73,0.12);
-            --warning: #d2991d;
-            --warning-muted: rgba(210,153,29,0.12);
-            --info: #58a6ff;
-            --text: #e6edf3;
-            --text-secondary: #8b949e;
-            --text-tertiary: #6e7681;
-            --font: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
-            --radius: 8px;
-            --radius-lg: 12px;
-            --shadow: 0 2px 8px rgba(0,0,0,0.3);
-            --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
-            --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
-        }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: var(--font);
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            min-height: 100dvh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 16px;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-font-smoothing: antialiased;
-        }
-        .app { width: 100%; max-width: 620px; }
+        :root{--bg:#0d1117;--surface:#161b22;--surface-hover:#1c2333;--border:#30363d;--primary:#3fb950;--primary-hover:#2ea043;--primary-muted:rgba(63,185,80,0.12);--danger:#f85149;--danger-muted:rgba(248,81,73,0.12);--warning:#d2991d;--warning-muted:rgba(210,153,29,0.12);--info:#58a6ff;--info-muted:rgba(88,166,255,0.12);--text:#e6edf3;--text-secondary:#8b949e;--text-tertiary:#6e7681;--font:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;--font-mono:'JetBrains Mono','SF Mono',monospace;--radius-sm:6px;--radius:8px;--radius-lg:12px;--shadow:0 2px 8px rgba(0,0,0,0.3);--shadow-lg:0 12px 40px rgba(0,0,0,0.5);--transition:0.2s cubic-bezier(0.4,0,0.2,1);--nav-height:68px}
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;min-height:100dvh;display:flex;justify-content:center;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased;padding-bottom:var(--nav-height);overscroll-behavior:none}
+        .app{width:100%;max-width:680px;padding:16px 16px 0;display:flex;flex-direction:column;min-height:100vh}
+        .hidden{display:none!important}
 
-        /* ==================== AUTH CONTAINER ==================== */
-        .auth-container {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 40px 32px;
-            box-shadow: var(--shadow-lg);
-            width: 100%;
-            max-width: 420px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-        .auth-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-        .auth-logo {
-            width: 56px; height: 56px;
-            background: var(--primary);
-            border-radius: 14px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            box-shadow: 0 0 32px rgba(63,185,80,0.2);
-        }
-        .auth-logo svg { width: 32px; height: 32px; }
-        .auth-header h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text);
-            letter-spacing: -0.3px;
-        }
-        .auth-header p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 6px;
-        }
+        /* Auth */
+        .auth-container{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 32px;box-shadow:var(--shadow-lg);width:100%;max-width:440px;margin:60px auto 0}
+        .auth-header{text-align:center;margin-bottom:32px}
+        .auth-logo{width:56px;height:56px;background:var(--primary);border-radius:14px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 0 32px rgba(63,185,80,0.2)}
+        .auth-logo svg{width:32px;height:32px}
+        .auth-header h2{font-size:1.4rem;font-weight:700;letter-spacing:-0.3px}
+        .auth-header p{font-size:0.85rem;color:var(--text-secondary);margin-top:6px}
+        .auth-form{display:flex;flex-direction:column;gap:16px}
+        .form-group{display:flex;flex-direction:column;gap:6px}
+        .form-group label{font-size:0.78rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.04em}
+        .input-wrapper{position:relative;display:flex;align-items:center}
+        .input-wrapper svg{position:absolute;left:12px;width:18px;height:18px;color:var(--text-tertiary);pointer-events:none}
+        .input-field{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:11px 14px 11px 40px;border-radius:var(--radius);font-size:0.9rem;outline:none;transition:all var(--transition);font-family:var(--font)}
+        .input-field:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-muted)}
+        .input-field::placeholder{color:var(--text-tertiary)}
+        .input-field.error{border-color:var(--danger);box-shadow:0 0 0 3px var(--danger-muted)}
+        .field-error{font-size:0.72rem;color:var(--danger);min-height:16px;font-weight:500}
+        .btn{border:none;font-weight:600;font-size:0.9rem;padding:12px 20px;border-radius:var(--radius);cursor:pointer;font-family:var(--font);transition:all var(--transition);text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;width:100%}
+        .btn:disabled{opacity:0.5;cursor:not-allowed}
+        .btn-primary{background:var(--primary);color:#000}
+        .btn-primary:hover:not(:disabled){background:var(--primary-hover)}
+        .btn-primary:active:not(:disabled){transform:scale(0.97)}
+        .btn-secondary{background:transparent;border:1px solid var(--border);color:var(--text)}
+        .btn-secondary:hover{border-color:var(--border-hover);background:var(--surface-hover)}
+        .btn-info{background:var(--info);color:#000}
+        .btn-sm{padding:6px 14px;font-size:0.78rem;width:auto}
+        .btn-icon{width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;transition:all var(--transition);font-size:1rem}
+        .btn-icon:hover{border-color:var(--border-hover);color:var(--text);background:var(--surface-hover)}
+        .auth-error-banner{background:var(--danger-muted);border:1px solid var(--danger);color:var(--danger);padding:10px 14px;border-radius:var(--radius);font-size:0.82rem;font-weight:500;display:none;text-align:center}
+        .auth-error-banner.visible{display:block}
+        .auth-success-banner{background:var(--primary-muted);border:1px solid var(--primary);color:var(--primary);padding:10px 14px;border-radius:var(--radius);font-size:0.82rem;font-weight:500;display:none;text-align:center}
+        .auth-success-banner.visible{display:block}
+        .divider{display:flex;align-items:center;gap:12px;color:var(--text-tertiary);font-size:0.75rem;font-weight:500}
+        .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+        .auth-switch{text-align:center;font-size:0.82rem;color:var(--text-secondary);margin-top:8px}
+        .auth-switch button{background:none;border:none;color:var(--info);cursor:pointer;font-weight:600;font-size:inherit;font-family:inherit}
+        .auth-switch button:hover{text-decoration:underline}
 
-        /* ==================== FORM STYLES ==================== */
-        .auth-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .form-group label {
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .input-wrapper svg {
-            position: absolute;
-            left: 12px;
-            width: 18px;
-            height: 18px;
-            color: var(--text-tertiary);
-            pointer-events: none;
-        }
-        .input-field {
-            width: 100%;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 11px 14px 11px 40px;
-            border-radius: var(--radius);
-            font-size: 0.9rem;
-            outline: none;
-            transition: all var(--transition);
-            font-family: var(--font);
-        }
-        .input-field:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-muted);
-        }
-        .input-field::placeholder { color: var(--text-tertiary); }
-        .input-field.error { border-color: var(--danger); box-shadow: 0 0 0 3px var(--danger-muted); }
-        .field-error {
-            font-size: 0.72rem;
-            color: var(--danger);
-            min-height: 16px;
-            font-weight: 500;
-        }
-        .field-hint {
-            font-size: 0.7rem;
-            color: var(--text-tertiary);
-        }
+        /* Header */
+        .app-header{display:flex;align-items:center;justify-content:space-between;padding:4px 0 12px;flex-wrap:wrap;gap:10px}
+        .header-brand{display:flex;align-items:center;gap:10px}
+        .header-logo{width:34px;height:34px;background:var(--primary);border-radius:8px;display:flex;align-items:center;justify-content:center}
+        .header-logo svg{width:20px;height:20px}
+        .app-header h1{font-size:1.25rem;font-weight:700;letter-spacing:-0.3px}
+        .header-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+        .badge{display:inline-flex;align-items:center;gap:6px;font-size:0.68rem;font-weight:500;padding:5px 10px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--text-secondary);font-family:var(--font-mono)}
+        .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--text-tertiary);transition:background 0.3s}
+        .badge.online .dot{background:var(--primary)}.badge.offline .dot{background:var(--danger)}
+        .user-btn{display:flex;align-items:center;gap:8px;background:var(--surface);padding:5px 12px;border-radius:20px;border:1px solid var(--border);cursor:pointer;font-size:0.78rem;font-weight:500;color:var(--text-secondary);font-family:var(--font)}
+        .user-btn:hover{border-color:var(--border-hover);color:var(--text)}
+        .user-btn .avatar{width:26px;height:26px;border-radius:50%;background:var(--primary-muted);display:flex;align-items:center;justify-content:center;color:var(--primary);font-weight:700;font-size:0.75rem;font-family:var(--font-mono)}
 
-        .btn {
-            border: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 12px 20px;
-            border-radius: var(--radius);
-            cursor: pointer;
-            font-family: var(--font);
-            transition: all var(--transition);
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-        }
-        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .btn-primary { background: var(--primary); color: #000; }
-        .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
-        .btn-primary:active:not(:disabled) { transform: scale(0.97); }
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text);
-        }
-        .btn-secondary:hover { border-color: var(--border-hover); background: var(--surface-hover); }
-        .btn-ghost {
-            background: transparent;
-            border: none;
-            color: var(--info);
-            padding: 8px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            cursor: pointer;
-            width: auto;
-            margin: 0 auto;
-        }
-        .btn-ghost:hover { text-decoration: underline; }
+        /* Sections */
+        .section{flex:1;display:flex;flex-direction:column;gap:14px;padding-bottom:8px;overflow-y:auto;max-height:calc(100vh - 180px);-webkit-overflow-scrolling:touch}
+        .section-title{font-size:0.8rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
 
-        .auth-error-banner {
-            background: var(--danger-muted);
-            border: 1px solid var(--danger);
-            color: var(--danger);
-            padding: 10px 14px;
-            border-radius: var(--radius);
-            font-size: 0.82rem;
-            font-weight: 500;
-            display: none;
-            text-align: center;
-        }
-        .auth-error-banner.visible { display: block; }
-        .auth-success-banner {
-            background: var(--primary-muted);
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 10px 14px;
-            border-radius: var(--radius);
-            font-size: 0.82rem;
-            font-weight: 500;
-            display: none;
-            text-align: center;
-        }
-        .auth-success-banner.visible { display: block; }
+        /* Tasks */
+        .stats-row{display:flex;gap:18px;font-size:0.75rem;color:var(--text-secondary);padding:4px 0 8px;font-weight:500;flex-wrap:wrap}
+        .stats-row span{font-weight:700}.stat-pending{color:var(--text)}.stat-done{color:var(--info)}.stat-overdue{color:var(--danger)}
+        .task-form{background:var(--surface);padding:14px;border-radius:var(--radius-lg);border:1px solid var(--border);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;transition:border var(--transition)}
+        .task-form:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-muted)}
+        .task-form-row{display:flex;gap:8px}
+        .task-form-input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-size:0.9rem;padding:6px 2px;min-width:0;font-family:var(--font);resize:vertical;min-height:42px;max-height:120px;line-height:1.5}
+        .task-form-input::placeholder{color:var(--text-tertiary)}
+        .char-counter{font-size:0.68rem;color:var(--text-tertiary);font-family:var(--font-mono);text-align:right;padding:2px 4px;transition:color 0.2s}
+        .char-counter.warning{color:var(--warning)}.char-counter.danger{color:var(--danger)}
+        .task-form-options{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+        .task-form-options select,.task-form-options input[type="date"],.task-form-options input[type="time"]{background:var(--bg);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:6px;font-size:0.76rem;outline:none;font-family:var(--font);cursor:pointer}
+        .task-form-options input[type="date"]::-webkit-calendar-picker-indicator,.task-form-options input[type="time"]::-webkit-calendar-picker-indicator{filter:invert(0.7);cursor:pointer}
+        .filters-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+        .filters{display:flex;gap:4px;flex-wrap:wrap}
+        .filter-btn{background:transparent;border:1px solid transparent;color:var(--text-secondary);padding:6px 12px;border-radius:6px;cursor:pointer;font-size:0.76rem;font-weight:500;transition:all var(--transition);font-family:var(--font);white-space:nowrap}
+        .filter-btn:hover{color:var(--text);background:var(--surface-hover)}
+        .filter-btn.active{background:var(--primary-muted);color:var(--primary);border-color:var(--primary);font-weight:600}
+        .search-input{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:6px;font-size:0.76rem;outline:none;width:130px;transition:all var(--transition);font-family:var(--font)}
+        .search-input:focus{border-color:var(--info);width:160px}.search-input::placeholder{color:var(--text-tertiary)}
+        .task-list{display:flex;flex-direction:column;gap:6px;padding-right:2px}
+        .task-item{display:flex;align-items:flex-start;gap:10px;background:var(--surface);padding:12px 14px;border-radius:var(--radius);border:1px solid transparent;transition:all var(--transition);animation:slideIn 0.3s ease}
+        @keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+        .task-item.completed{opacity:0.45}.task-item.completed .task-text{text-decoration:line-through;color:var(--text-tertiary)}
+        .task-item.overdue{border-color:rgba(248,81,73,0.35);background:var(--danger-muted)}
+        .task-item.due-today{border-color:rgba(210,153,29,0.35);background:var(--warning-muted)}
+        .checkbox{width:20px;height:20px;border-radius:4px;border:2px solid var(--border);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px;background:transparent}
+        .checkbox:hover{border-color:var(--primary)}.task-item.completed .checkbox{background:var(--primary);border-color:var(--primary)}
+        .task-item.completed .checkbox::after{content:'';width:5px;height:9px;border:solid #000;border-width:0 2px 2px 0;transform:rotate(45deg);margin-top:-2px}
+        .task-content{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+        .task-text{font-size:0.88rem;word-break:break-word;line-height:1.4;cursor:pointer}
+        .task-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:0.7rem;color:var(--text-tertiary);font-family:var(--font-mono)}
+        .tag-category{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:4px;font-weight:600;font-size:0.66rem;border:1px solid;font-family:var(--font);text-transform:uppercase;letter-spacing:0.02em}
+        .tag-due{display:inline-flex;align-items:center;gap:3px;font-weight:600}.tag-due.overdue-text{color:var(--danger)}.tag-due.today-text{color:var(--warning)}
+        .task-delete{background:transparent;border:none;color:var(--text-tertiary);cursor:pointer;font-size:1rem;padding:4px 6px;border-radius:4px;opacity:0;transition:all 0.15s;flex-shrink:0;margin-top:1px}
+        .task-item:hover .task-delete{opacity:0.5}.task-delete:hover{opacity:1!important;color:var(--danger);background:var(--danger-muted)}
+        .empty-state{text-align:center;padding:40px 20px;color:var(--text-tertiary)}
+        .empty-icon{width:48px;height:48px;border-radius:12px;background:var(--surface);border:1px solid var(--border);display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;color:var(--text-secondary)}
+        .empty-icon svg{width:24px;height:24px;opacity:0.5}
 
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text-tertiary);
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-        .divider::before, .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
+        /* Countdown */
+        .countdown-form{background:var(--surface);padding:14px;border-radius:var(--radius-lg);border:1px solid var(--border);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+        .countdown-form-row{display:flex;gap:8px;flex-wrap:wrap}
+        .countdown-form-row input{background:var(--bg);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:var(--radius-sm);font-size:0.85rem;outline:none;font-family:var(--font);flex:1;min-width:120px}
+        .countdown-form-row input:focus{border-color:var(--primary)}
+        .countdown-form-row input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.7);cursor:pointer}
+        .countdown-list{display:flex;flex-direction:column;gap:10px}
+        .countdown-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;box-shadow:var(--shadow);transition:all var(--transition);position:relative;overflow:hidden}
+        .countdown-card.passed{opacity:0.5;border-color:var(--danger)}.countdown-card.today{border-color:var(--warning)}
+        .countdown-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+        .countdown-card-title{font-size:1rem;font-weight:600;color:var(--text)}
+        .countdown-card-date{font-size:0.72rem;color:var(--text-secondary);font-family:var(--font-mono)}
+        .countdown-card-delete{background:transparent;border:none;color:var(--text-tertiary);cursor:pointer;font-size:1rem;padding:2px 6px;border-radius:4px;transition:all 0.15s}
+        .countdown-card-delete:hover{color:var(--danger);background:var(--danger-muted)}
+        .countdown-progress{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:10px}
+        .countdown-progress-bar{height:100%;border-radius:3px;transition:width 0.5s ease;background:var(--info)}
+        .countdown-progress-bar.soon{background:var(--warning)}.countdown-progress-bar.passed-bar{background:var(--danger)}
+        .countdown-stats{display:flex;gap:16px;flex-wrap:wrap}
+        .countdown-stat{text-align:center;min-width:50px}
+        .countdown-stat-value{font-size:1.8rem;font-weight:800;font-family:var(--font-mono);color:var(--text);line-height:1}
+        .countdown-stat-value.passed{color:var(--danger)}.countdown-stat-label{font-size:0.65rem;color:var(--text-tertiary);text-transform:uppercase;margin-top:2px}
+        .countdown-message{margin-top:10px;font-size:0.82rem;font-weight:600;text-align:center;padding:6px 12px;border-radius:var(--radius-sm)}
+        .countdown-message.future{color:var(--info);background:var(--info-muted)}.countdown-message.soon{color:var(--warning);background:var(--warning-muted)}
+        .countdown-message.passed{color:var(--danger);background:var(--danger-muted)}.countdown-message.today{color:var(--primary);background:var(--primary-muted)}
 
-        .auth-switch {
-            text-align: center;
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            margin-top: 8px;
-        }
-        .auth-switch button {
-            background: none;
-            border: none;
-            color: var(--info);
-            cursor: pointer;
-            font-weight: 600;
-            font-size: inherit;
-            font-family: inherit;
-        }
-        .auth-switch button:hover { text-decoration: underline; }
+        /* Calendar */
+        .calendar-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+        .calendar-nav button{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:8px 16px;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-size:0.82rem;transition:all var(--transition)}
+        .calendar-nav button:hover{border-color:var(--border-hover);background:var(--surface-hover)}
+        .calendar-nav .month-label{font-size:1rem;font-weight:700;color:var(--text);min-width:160px;text-align:center}
+        .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+        .calendar-day-header{text-align:center;font-size:0.68rem;font-weight:600;color:var(--text-secondary);padding:8px 0;text-transform:uppercase}
+        .calendar-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);font-size:0.78rem;font-weight:500;cursor:pointer;transition:all var(--transition);background:transparent;color:var(--text);border:1px solid transparent;font-family:var(--font-mono);position:relative}
+        .calendar-day:hover{background:var(--surface-hover);border-color:var(--border)}
+        .calendar-day.other-month{color:var(--text-tertiary);opacity:0.4}
+        .calendar-day.today{border-color:var(--primary);background:var(--primary-muted);font-weight:700}
+        .calendar-day.passed{background:var(--danger-muted);color:var(--danger);text-decoration:line-through;text-decoration-color:var(--danger);text-decoration-thickness:2px}
+        .calendar-day.future{color:var(--info);font-weight:600}
+        .calendar-day.selected{border-color:var(--info);background:var(--info-muted)}
+        .calendar-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:0.7rem;color:var(--text-secondary);margin-top:8px}
+        .calendar-legend span{display:flex;align-items:center;gap:6px}
+        .legend-dot{width:10px;height:10px;border-radius:3px}.legend-dot.passed{background:var(--danger)}.legend-dot.future{background:var(--info)}.legend-dot.today{border:2px solid var(--primary);background:transparent}
+        .selected-info{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center;margin-top:8px}
+        .selected-info .big-number{font-size:3rem;font-weight:800;font-family:var(--font-mono);line-height:1}
+        .selected-info .label{font-size:0.75rem;color:var(--text-secondary);margin-top:4px}
 
-        /* ==================== MAIN APP (mismo estilo) ==================== */
-        .app-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 4px 0 12px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .header-brand { display: flex; align-items: center; gap: 10px; }
-        .header-logo {
-            width: 34px; height: 34px;
-            background: var(--primary);
-            border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .header-logo svg { width: 20px; height: 20px; }
-        .app-header h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.3px; }
-        .header-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            font-size: 0.68rem; font-weight: 500; padding: 5px 10px;
-            border-radius: 20px; background: var(--surface);
-            border: 1px solid var(--border); color: var(--text-secondary);
-            font-family: var(--font-mono); letter-spacing: 0.02em;
-        }
-        .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-tertiary); transition: background 0.3s; }
-        .badge.online .dot { background: var(--primary); }
-        .badge.offline .dot { background: var(--danger); }
-        .user-btn {
-            display: flex; align-items: center; gap: 8px;
-            background: var(--surface); padding: 5px 12px;
-            border-radius: 20px; border: 1px solid var(--border);
-            cursor: pointer; font-size: 0.78rem; font-weight: 500;
-            color: var(--text-secondary); font-family: var(--font);
-        }
-        .user-btn:hover { border-color: var(--border-hover); color: var(--text); }
-        .user-btn .avatar {
-            width: 26px; height: 26px; border-radius: 50%;
-            background: var(--primary-muted); display: flex;
-            align-items: center; justify-content: center;
-            color: var(--primary); font-weight: 700; font-size: 0.75rem;
-            font-family: var(--font-mono);
-        }
-        .stats-row {
-            display: flex; gap: 18px; font-size: 0.75rem;
-            color: var(--text-secondary); padding: 4px 0 12px;
-            font-weight: 500;
-        }
-        .stats-row span { font-weight: 700; }
-        .stat-pending { color: var(--text); }
-        .stat-done { color: var(--info); }
-        .stat-overdue { color: var(--danger); }
-        .panel {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: var(--radius-lg); padding: 16px 18px;
-            box-shadow: var(--shadow); margin-bottom: 14px;
-        }
-        .panel-title {
-            font-size: 0.78rem; font-weight: 600; color: var(--text-secondary);
-            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .panel-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-        .toggle-label { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--text); cursor: pointer; font-weight: 500; }
-        .toggle-switch {
-            width: 40px; height: 22px; background: var(--border);
-            border-radius: 11px; position: relative; cursor: pointer;
-            transition: background var(--transition); flex-shrink: 0;
-        }
-        .toggle-switch::after {
-            content: ''; position: absolute; width: 18px; height: 18px;
-            background: #fff; border-radius: 50%; top: 2px; left: 2px;
-            transition: transform var(--transition);
-        }
-        .toggle-switch.active { background: var(--info); }
-        .toggle-switch.active::after { transform: translateX(18px); }
-        .select-sm {
-            background: var(--bg); border: 1px solid var(--border);
-            color: var(--text); padding: 6px 10px; border-radius: 6px;
-            font-size: 0.78rem; outline: none; font-family: var(--font); cursor: pointer;
-        }
-        .task-form {
-            background: var(--surface); padding: 12px 14px;
-            border-radius: var(--radius-lg); border: 1px solid var(--border);
-            box-shadow: var(--shadow); display: flex; flex-direction: column;
-            gap: 8px; transition: border var(--transition); margin-bottom: 14px;
-        }
-        .task-form:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-muted); }
-        .task-form-row { display: flex; gap: 8px; }
-        .task-form-row input {
-            flex: 1; background: transparent; border: none; outline: none;
-            color: var(--text); font-size: 0.9rem; padding: 8px 2px;
-            min-width: 0; font-family: var(--font);
-        }
-        .task-form-row input::placeholder { color: var(--text-tertiary); }
-        .task-form-options { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
-        .task-form-options select, .task-form-options input[type="date"], .task-form-options input[type="time"] {
-            background: var(--bg); border: 1px solid var(--border); color: var(--text);
-            padding: 6px 10px; border-radius: 6px; font-size: 0.76rem;
-            outline: none; font-family: var(--font); cursor: pointer;
-        }
-        .filters-bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-        .filters { display: flex; gap: 4px; flex-wrap: wrap; }
-        .filter-btn {
-            background: transparent; border: 1px solid transparent; color: var(--text-secondary);
-            padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.76rem;
-            font-weight: 500; transition: all var(--transition); font-family: var(--font); white-space: nowrap;
-        }
-        .filter-btn:hover { color: var(--text); background: var(--surface-hover); }
-        .filter-btn.active { background: var(--primary-muted); color: var(--primary); border-color: var(--primary); font-weight: 600; }
-        .search-input {
-            background: var(--surface); border: 1px solid var(--border); color: var(--text);
-            padding: 6px 12px; border-radius: 6px; font-size: 0.76rem; outline: none;
-            width: 130px; transition: all var(--transition); font-family: var(--font);
-        }
-        .search-input:focus { border-color: var(--info); width: 160px; }
-        .task-list {
-            display: flex; flex-direction: column; gap: 6px;
-            max-height: 44vh; overflow-y: auto; padding-right: 2px;
-        }
-        .task-item {
-            display: flex; align-items: flex-start; gap: 10px;
-            background: var(--surface); padding: 12px 14px; border-radius: var(--radius);
-            border: 1px solid transparent; transition: all var(--transition);
-            animation: slideIn 0.3s ease;
-        }
-        @keyframes slideIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
-        .task-item.completed { opacity: 0.45; }
-        .task-item.completed .task-text { text-decoration: line-through; color: var(--text-tertiary); }
-        .task-item.overdue { border-color: rgba(248,81,73,0.35); background: var(--danger-muted); }
-        .task-item.due-today { border-color: rgba(210,153,29,0.35); background: var(--warning-muted); }
-        .checkbox {
-            width: 20px; height: 20px; border-radius: 4px;
-            border: 2px solid var(--border); cursor: pointer; flex-shrink: 0;
-            display: flex; align-items: center; justify-content: center; margin-top: 2px;
-        }
-        .task-item.completed .checkbox { background: var(--primary); border-color: var(--primary); }
-        .task-item.completed .checkbox::after {
-            content: ''; width: 5px; height: 9px; border: solid #000;
-            border-width: 0 2px 2px 0; transform: rotate(45deg); margin-top: -2px;
-        }
-        .task-content { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
-        .task-text { font-size: 0.88rem; word-break: break-word; line-height: 1.4; cursor: pointer; }
-        .task-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.7rem; color: var(--text-tertiary); font-family: var(--font-mono); }
-        .tag-category {
-            display: inline-flex; align-items: center; gap: 4px;
-            padding: 2px 8px; border-radius: 4px; font-weight: 600;
-            font-size: 0.66rem; border: 1px solid; font-family: var(--font);
-            text-transform: uppercase; letter-spacing: 0.02em;
-        }
-        .tag-due.overdue-text { color: var(--danger); }
-        .tag-due.today-text { color: var(--warning); }
-        .task-delete {
-            background: transparent; border: none; color: var(--text-tertiary);
-            cursor: pointer; font-size: 1rem; padding: 4px 6px; border-radius: 4px;
-            opacity: 0; transition: all 0.15s; flex-shrink: 0; margin-top: 1px;
-        }
-        .task-item:hover .task-delete { opacity: 0.5; }
-        .task-delete:hover { opacity: 1 !important; color: var(--danger); background: var(--danger-muted); }
-        .empty-state { text-align: center; padding: 48px 20px; color: var(--text-tertiary); }
-        .toast {
-            position: fixed; bottom: 28px; left: 50%;
-            transform: translateX(-50%) translateY(120px);
-            background: var(--surface-hover); color: var(--text);
-            padding: 12px 24px; border-radius: 8px; font-size: 0.82rem;
-            font-weight: 500; box-shadow: var(--shadow-lg); border: 1px solid var(--border);
-            transition: transform 0.3s ease; z-index: 1000; pointer-events: none;
-        }
-        .toast.show { transform: translateX(-50%) translateY(0); }
-        .hidden { display: none !important; }
-        @media (max-width: 500px) {
-            .auth-container { padding: 28px 18px; }
-            .filters-bar { flex-direction: column; align-items: stretch; }
-            .search-input { width: 100%; }
-            .search-input:focus { width: 100%; }
-        }
+        /* Bottom Nav */
+        .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:680px;background:var(--surface);border-top:1px solid var(--border);display:flex;z-index:100;box-shadow:0 -4px 20px rgba(0,0,0,0.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding-bottom:env(safe-area-inset-bottom,0)}
+        .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px 10px;cursor:pointer;color:var(--text-tertiary);transition:all var(--transition);border:none;background:none;font-family:var(--font);-webkit-tap-highlight-color:transparent;gap:4px}
+        .nav-item svg{width:22px;height:22px;transition:all var(--transition)}.nav-item span{font-size:0.62rem;font-weight:500}
+        .nav-item.active{color:var(--primary)}.nav-item.active svg{color:var(--primary)}.nav-item:hover{color:var(--text)}.nav-item:active{transform:scale(0.95)}
+
+        /* Toast */
+        .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--surface-hover);color:var(--text);padding:12px 24px;border-radius:8px;font-size:0.82rem;font-weight:500;box-shadow:var(--shadow-lg);border:1px solid var(--border);transition:transform 0.3s ease;z-index:1000;pointer-events:none;white-space:nowrap}
+        .toast.show{transform:translateX(-50%) translateY(0)}
+        @media(max-width:500px){.auth-container{padding:28px 18px}.app-header h1{font-size:1.1rem}.filters-bar{flex-direction:column;align-items:stretch}.search-input{width:100%}.search-input:focus{width:100%}.countdown-stats{gap:10px}.countdown-stat-value{font-size:1.4rem}.calendar-grid{gap:2px}.calendar-day{font-size:0.7rem}}
     </style>
 </head>
 <body>
     <div class="app" id="app">
-        <!-- ==================== LOGIN SCREEN ==================== -->
+        <!-- Login -->
         <div class="auth-container" id="loginScreen">
-            <div class="auth-header">
-                <div class="auth-logo">
-                    <svg viewBox="0 0 24 24" fill="none">
-                        <path d="M9 12l2 2 4-4" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="3" y="3" width="18" height="18" rx="4" stroke="#000" stroke-width="2" fill="none"/>
-                    </svg>
-                </div>
-                <h2>Iniciar sesion</h2>
-                <p>Acceda a su cuenta para gestionar sus tareas</p>
-            </div>
+            <div class="auth-header"><div class="auth-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="18" height="18" rx="4" stroke="#000" stroke-width="2" fill="none"/></svg></div><h2>Iniciar sesion</h2><p>Acceda a su cuenta</p></div>
             <div class="auth-error-banner" id="loginError"></div>
             <form class="auth-form" id="loginForm" autocomplete="on">
-                <div class="form-group">
-                    <label for="loginEmail">Correo electronico</label>
-                    <div class="input-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
-                        <input type="email" class="input-field" id="loginEmail" placeholder="usuario@correo.com" autocomplete="email" inputmode="email">
-                    </div>
-                    <div class="field-error" id="loginEmailError"></div>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Contrasena</label>
-                    <div class="input-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        <input type="password" class="input-field" id="loginPassword" placeholder="Su contrasena" autocomplete="current-password">
-                    </div>
-                    <div class="field-error" id="loginPasswordError"></div>
-                </div>
-                <button type="submit" class="btn btn-primary" id="loginSubmitBtn">
-                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    Ingresar
-                </button>
+                <div class="form-group"><label for="loginEmail">Correo</label><div class="input-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg><input type="email" class="input-field" id="loginEmail" placeholder="usuario@correo.com" autocomplete="email"></div><div class="field-error" id="loginEmailError"></div></div>
+                <div class="form-group"><label for="loginPassword">Contrasena</label><div class="input-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" class="input-field" id="loginPassword" placeholder="Contrasena" autocomplete="current-password"></div><div class="field-error" id="loginPasswordError"></div></div>
+                <button type="submit" class="btn btn-primary" id="loginSubmitBtn">Ingresar</button>
             </form>
-            <div class="auth-switch">
-                No tiene cuenta? <button id="goToRegister">Crear una cuenta</button>
-            </div>
-            <div class="divider" style="margin-top:16px;">o</div>
-            <button class="btn btn-secondary" id="guestLoginBtn" style="margin-top:12px;">
-                <svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 21v-1a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-                Acceso como invitado
-            </button>
+            <div class="auth-switch">No tiene cuenta? <button id="goToRegister">Crear una</button></div>
+            <div class="divider" style="margin-top:16px">o</div>
+            <button class="btn btn-secondary" id="guestLoginBtn" style="margin-top:12px">Acceso como invitado</button>
         </div>
 
-        <!-- ==================== REGISTER SCREEN ==================== -->
+        <!-- Register -->
         <div class="auth-container hidden" id="registerScreen">
-            <div class="auth-header">
-                <div class="auth-logo">
-                    <svg viewBox="0 0 24 24" fill="none">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    </svg>
-                </div>
-                <h2>Crear cuenta</h2>
-                <p>Registrese para comenzar a gestionar sus tareas</p>
-            </div>
-            <div class="auth-error-banner" id="registerError"></div>
-            <div class="auth-success-banner" id="registerSuccess"></div>
+            <div class="auth-header"><div class="auth-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div><h2>Crear cuenta</h2><p>Registrese para comenzar</p></div>
+            <div class="auth-error-banner" id="registerError"></div><div class="auth-success-banner" id="registerSuccess"></div>
             <form class="auth-form" id="registerForm" autocomplete="on">
-                <div class="form-group">
-                    <label for="registerEmail">Correo electronico</label>
-                    <div class="input-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
-                        <input type="email" class="input-field" id="registerEmail" placeholder="usuario@correo.com" autocomplete="email" inputmode="email">
-                    </div>
-                    <div class="field-error" id="registerEmailError"></div>
-                </div>
-                <div class="form-group">
-                    <label for="registerPassword">Contrasena</label>
-                    <div class="input-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        <input type="password" class="input-field" id="registerPassword" placeholder="Minimo 6 caracteres" autocomplete="new-password">
-                    </div>
-                    <div class="field-error" id="registerPasswordError"></div>
-                    <div class="field-hint">Debe contener al menos 6 caracteres</div>
-                </div>
-                <div class="form-group">
-                    <label for="registerPasswordConfirm">Confirmar contrasena</label>
-                    <div class="input-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="11" width="18" height="11" rx="2"/></svg>
-                        <input type="password" class="input-field" id="registerPasswordConfirm" placeholder="Repita su contrasena" autocomplete="new-password">
-                    </div>
-                    <div class="field-error" id="registerConfirmError"></div>
-                </div>
-                <button type="submit" class="btn btn-primary" id="registerSubmitBtn">
-                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    Crear cuenta
-                </button>
+                <div class="form-group"><label for="registerEmail">Correo</label><div class="input-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg><input type="email" class="input-field" id="registerEmail" placeholder="usuario@correo.com"></div><div class="field-error" id="registerEmailError"></div></div>
+                <div class="form-group"><label for="registerPassword">Contrasena</label><div class="input-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input type="password" class="input-field" id="registerPassword" placeholder="Minimo 6 caracteres"></div><div class="field-error" id="registerPasswordError"></div></div>
+                <div class="form-group"><label for="registerPasswordConfirm">Confirmar</label><div class="input-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="11" width="18" height="11" rx="2"/></svg><input type="password" class="input-field" id="registerPasswordConfirm" placeholder="Repita su contrasena"></div><div class="field-error" id="registerConfirmError"></div></div>
+                <button type="submit" class="btn btn-primary" id="registerSubmitBtn">Crear cuenta</button>
             </form>
-            <div class="auth-switch">
-                Ya tiene cuenta? <button id="goToLogin">Iniciar sesion</button>
-            </div>
+            <div class="auth-switch">Ya tiene cuenta? <button id="goToLogin">Iniciar sesion</button></div>
         </div>
 
-        <!-- ==================== MAIN APP ==================== -->
+        <!-- Main App -->
         <div class="hidden" id="mainApp">
             <header class="app-header">
-                <div class="header-brand">
-                    <div class="header-logo">
-                        <svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="18" height="18" rx="4" stroke="#000" stroke-width="2" fill="none"/></svg>
-                    </div>
-                    <h1>Tareas Pro</h1>
-                </div>
-                <div class="header-right">
-                    <div class="badge" id="connBadge"><span class="dot"></span><span id="connLabel">Conectando</span></div>
-                    <button class="user-btn" id="logoutBtn" title="Cerrar sesion">
-                        <div class="avatar" id="userAvatar">?</div>
-                        <span id="userEmailShort">...</span>
-                    </button>
-                </div>
+                <div class="header-brand"><div class="header-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="18" height="18" rx="4" stroke="#000" stroke-width="2" fill="none"/></svg></div><h1>Tareas Pro</h1></div>
+                <div class="header-right"><div class="badge" id="connBadge"><span class="dot"></span><span id="connLabel">Conectando</span></div><button class="user-btn" id="logoutBtn"><div class="avatar" id="userAvatar">?</div><span id="userEmailShort">...</span></button></div>
             </header>
-            <div class="stats-row">
-                <span class="stat-pending"><span id="pendingCount">0</span> pendientes</span>
-                <span class="stat-done"><span id="doneCount">0</span> completadas</span>
-                <span class="stat-overdue"><span id="overdueCount">0</span> vencidas</span>
-            </div>
-            <div class="panel">
-                <div class="panel-title">Notificaciones</div>
-                <div class="panel-row">
-                    <div class="toggle-label" id="notifToggle">
-                        <div class="toggle-switch" id="notifSwitch"></div>
-                        <span id="notifToggleLabel">Notificaciones push</span>
-                    </div>
-                    <select class="select-sm" id="notifTimingSelect">
-                        <option value="at-time">En el momento exacto</option>
-                        <option value="15min">15 minutos antes</option>
-                        <option value="30min">30 minutos antes</option>
-                        <option value="1hour">1 hora antes</option>
-                        <option value="1day">1 dia antes</option>
-                    </select>
-                    <button class="btn btn-secondary" style="width:auto;padding:6px 14px;font-size:0.78rem;" id="testNotifBtn">Probar</button>
+
+            <div class="section" id="tasksSection">
+                <div class="stats-row"><span class="stat-pending"><span id="pendingCount">0</span> pendientes</span><span class="stat-done"><span id="doneCount">0</span> completadas</span><span class="stat-overdue"><span id="overdueCount">0</span> vencidas</span></div>
+                <div class="task-form">
+                    <div class="task-form-row"><input type="text" class="task-form-input" id="taskInput" placeholder="Nueva tarea..." maxlength="500"><button class="btn btn-primary btn-sm" id="submitTaskBtn" style="padding:8px 18px">Agregar</button></div>
+                    <div style="display:flex;justify-content:space-between;align-items:center"><div class="task-form-options"><select id="taskCategory"><option value="">Sin categoria</option><option value="trabajo">Trabajo</option><option value="personal">Personal</option><option value="estudio">Estudio</option><option value="salud">Salud</option><option value="compras">Compras</option><option value="urgente">Urgente</option></select><input type="date" id="taskDueDate"><input type="time" id="taskDueTime" value="12:00"><button class="btn-icon" id="clearDueBtn">&times;</button></div><span class="char-counter" id="charCounter">0 / 500</span></div>
                 </div>
+                <div class="filters-bar"><div class="filters"><button class="filter-btn active" data-filter="all">Todas</button><button class="filter-btn" data-filter="pending">Pendientes</button><button class="filter-btn" data-filter="completed">Completadas</button><button class="filter-btn" data-filter="overdue">Vencidas</button><button class="filter-btn" data-filter="today">Hoy</button></div><input type="text" class="search-input" id="searchInput" placeholder="Buscar..."></div>
+                <div class="task-list" id="taskList"></div>
             </div>
-            <div class="task-form">
-                <div class="task-form-row">
-                    <input type="text" id="taskInput" placeholder="Nueva tarea..." autocomplete="off" maxlength="200">
-                    <button class="btn btn-primary" id="submitBtn" style="width:auto;padding:8px 18px;">Agregar</button>
-                </div>
-                <div class="task-form-options">
-                    <select id="categorySelect">
-                        <option value="">Sin categoria</option>
-                        <option value="trabajo">Trabajo</option>
-                        <option value="personal">Personal</option>
-                        <option value="estudio">Estudio</option>
-                        <option value="salud">Salud</option>
-                        <option value="compras">Compras</option>
-                        <option value="urgente">Urgente</option>
-                    </select>
-                    <input type="date" id="dueDateInput" title="Fecha de vencimiento">
-                    <input type="time" id="dueTimeInput" title="Hora" value="12:00">
-                    <button class="btn btn-secondary" id="clearDueBtn" style="width:auto;padding:6px 10px;font-size:0.8rem;" title="Limpiar">&times;</button>
-                </div>
+
+            <div class="section hidden" id="calendarSection">
+                <div class="section-title">Calendario de cuenta regresiva</div>
+                <div style="display:flex;gap:8px;margin-bottom:8px"><select id="calendarCountdownSelect" style="flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:var(--radius-sm);font-size:0.85rem;outline:none;font-family:var(--font);cursor:pointer"><option value="">Seleccione un evento...</option></select></div>
+                <div class="calendar-nav"><button id="prevMonth">&lt;</button><span class="month-label" id="monthLabel"></span><button id="nextMonth">&gt;</button></div>
+                <div class="calendar-grid" id="calendarDays"></div>
+                <div class="calendar-legend"><span><span class="legend-dot passed"></span> Dias pasados</span><span><span class="legend-dot future"></span> Dias restantes</span><span><span class="legend-dot today"></span> Hoy</span></div>
+                <div class="selected-info hidden" id="selectedDayInfo"><div class="big-number" id="selectedDayNumber">0</div><div class="label" id="selectedDayLabel">dias</div></div>
+                <div class="empty-state" id="calendarEmpty"><div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><p>Seleccione un evento para ver su calendario</p></div>
             </div>
-            <div class="filters-bar">
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all">Todas</button>
-                    <button class="filter-btn" data-filter="pending">Pendientes</button>
-                    <button class="filter-btn" data-filter="completed">Completadas</button>
-                    <button class="filter-btn" data-filter="overdue">Vencidas</button>
-                    <button class="filter-btn" data-filter="today">Hoy</button>
-                </div>
-                <input type="text" class="search-input" id="searchInput" placeholder="Buscar...">
+
+            <div class="section hidden" id="countdownSection">
+                <div class="countdown-form"><div class="section-title">Nueva cuenta regresiva</div><div class="countdown-form-row"><input type="text" id="countdownName" placeholder="Nombre del evento" maxlength="100"><input type="date" id="countdownDate"><button class="btn btn-primary btn-sm" id="addCountdownBtn">Agregar</button></div></div>
+                <div class="countdown-list" id="countdownList"></div>
             </div>
-            <div class="task-list" id="taskList"></div>
+
             <div class="toast" id="toast"></div>
         </div>
+
+        <nav class="bottom-nav hidden" id="bottomNav">
+            <button class="nav-item active" data-section="tasks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tareas</span></button>
+            <button class="nav-item" data-section="calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Calendario</span></button>
+            <button class="nav-item" data-section="countdown"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Regresiva</span></button>
+        </nav>
     </div>
 
     <script type="module">
@@ -615,347 +264,193 @@
         const db = getDatabase(app);
         const auth = getAuth(app);
 
-        // State
-        let tasks = [], currentFilter = 'all', searchQuery = '', isOnline = true, loaded = false;
-        let currentUser = null, tasksRef = null;
-        const CATEGORIES = {
-            trabajo:{color:'#58a6ff',label:'Trabajo'}, personal:{color:'#bc8cff',label:'Personal'},
-            estudio:{color:'#e3b341',label:'Estudio'}, salud:{color:'#f85149',label:'Salud'},
-            compras:{color:'#3fb950',label:'Compras'}, urgente:{color:'#f778ba',label:'Urgente'}
-        };
-
-        // DOM helpers
-        const $ = s => document.getElementById(s);
-        const loginScreen = $('loginScreen');
-        const registerScreen = $('registerScreen');
-        const mainApp = $('mainApp');
-
-        // Toast
-        const toast = $('toast');
-        let toastTimer;
-        function showToast(m) {
-            toast.textContent = m; toast.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js', { scope: '/' })
+                .then(reg => console.log('SW registrado:', reg.scope))
+                .catch(err => console.error('SW error:', err));
         }
 
-        // ==================== AUTH SCREENS LOGIC ====================
-        function showScreen(screen) {
-            loginScreen.classList.add('hidden');
-            registerScreen.classList.add('hidden');
-            mainApp.classList.add('hidden');
-            screen.classList.remove('hidden');
-        }
+        let tasks=[],countdowns=[],currentFilter='all',searchQuery='',tasksLoaded=false,countdownsLoaded=false,currentUser=null,calendarMonth=new Date(),selectedCountdownId=null;
+        const CATEGORIES={trabajo:{color:'#58a6ff',label:'Trabajo'},personal:{color:'#bc8cff',label:'Personal'},estudio:{color:'#e3b341',label:'Estudio'},salud:{color:'#f85149',label:'Salud'},compras:{color:'#3fb950',label:'Compras'},urgente:{color:'#f778ba',label:'Urgente'}};
+        const DAYS=['Dom','Lun','Mar','Mie','Jue','Vie','Sab'];
+        const MONTHS=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+        const $=s=>document.getElementById(s);
+        const toast=$('toast');let toastTimer;
+        function showToast(m){toast.textContent=m;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2800)}
 
-        // Clear errors
-        function clearAuthErrors() {
-            ['loginError','loginEmailError','loginPasswordError','registerError','registerEmailError','registerPasswordError','registerConfirmError','registerSuccess'].forEach(id => {
-                const el = $(id); if (el) { el.textContent = ''; el.classList.remove('visible'); }
+        function switchSection(s){
+            $('tasksSection').classList.toggle('hidden',s!=='tasks');
+            $('calendarSection').classList.toggle('hidden',s!=='calendar');
+            $('countdownSection').classList.toggle('hidden',s!=='countdown');
+            document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.section===s));
+            if(s==='calendar'){updateCalendarSelect();renderCalendar()}
+            if(s==='countdown')renderCountdowns();
+        }
+        document.querySelectorAll('.nav-item').forEach(item=>item.addEventListener('click',()=>switchSection(item.dataset.section)));
+
+        function showScreen(s){$('loginScreen').classList.add('hidden');$('registerScreen').classList.add('hidden');$('mainApp').classList.add('hidden');$('bottomNav').classList.add('hidden');s.classList.remove('hidden')}
+        function clearAuth(){['loginError','loginEmailError','loginPasswordError','registerError','registerEmailError','registerPasswordError','registerConfirmError','registerSuccess'].forEach(id=>{const e=$(id);if(e){e.textContent='';e.classList.remove('visible')}})}
+        function showBanner(id,msg){const e=$(id);if(e){e.textContent=msg;e.classList.add('visible')}}
+
+        $('goToRegister').addEventListener('click',e=>{e.preventDefault();clearAuth();$('loginEmail').value='';$('loginPassword').value='';showScreen($('registerScreen'));$('registerEmail').focus()});
+        $('goToLogin').addEventListener('click',e=>{e.preventDefault();clearAuth();$('registerEmail').value='';$('registerPassword').value='';$('registerPasswordConfirm').value='';showScreen($('loginScreen'));$('loginEmail').focus()});
+
+        $('loginForm').addEventListener('submit',async e=>{
+            e.preventDefault();clearAuth();
+            const email=$('loginEmail').value.trim(),pass=$('loginPassword').value;let v=true;
+            if(!email){$('loginEmail').classList.add('error');showBanner('loginEmailError','Ingrese su correo');v=false}else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){$('loginEmail').classList.add('error');showBanner('loginEmailError','Formato invalido');v=false}else $('loginEmail').classList.remove('error');
+            if(!pass){$('loginPassword').classList.add('error');showBanner('loginPasswordError','Ingrese su contrasena');v=false}else $('loginPassword').classList.remove('error');
+            if(!v)return;
+            $('loginSubmitBtn').disabled=true;$('loginSubmitBtn').textContent='Ingresando...';
+            try{await signInWithEmailAndPassword(auth,email,pass)}catch(err){const m={'auth/invalid-credential':'Credenciales incorrectas','auth/user-not-found':'No existe','auth/too-many-requests':'Espere','auth/network-request-failed':'Error de red'};showBanner('loginError',m[err.code]||err.message)}
+            finally{$('loginSubmitBtn').disabled=false;$('loginSubmitBtn').textContent='Ingresar'}
+        });
+
+        $('registerForm').addEventListener('submit',async e=>{
+            e.preventDefault();clearAuth();
+            const email=$('registerEmail').value.trim(),pass=$('registerPassword').value,conf=$('registerPasswordConfirm').value;let v=true;
+            if(!email){$('registerEmail').classList.add('error');showBanner('registerEmailError','Ingrese su correo');v=false}else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){$('registerEmail').classList.add('error');showBanner('registerEmailError','Formato invalido');v=false}else $('registerEmail').classList.remove('error');
+            if(!pass){$('registerPassword').classList.add('error');showBanner('registerPasswordError','Ingrese contrasena');v=false}else if(pass.length<6){$('registerPassword').classList.add('error');showBanner('registerPasswordError','Minimo 6 caracteres');v=false}else $('registerPassword').classList.remove('error');
+            if(!conf){$('registerPasswordConfirm').classList.add('error');showBanner('registerConfirmError','Confirme');v=false}else if(pass!==conf){$('registerPasswordConfirm').classList.add('error');showBanner('registerConfirmError','No coinciden');v=false}else $('registerPasswordConfirm').classList.remove('error');
+            if(!v)return;
+            $('registerSubmitBtn').disabled=true;$('registerSubmitBtn').textContent='Creando...';
+            try{await createUserWithEmailAndPassword(auth,email,pass);showBanner('registerSuccess','Cuenta creada. Redirigiendo...')}catch(err){const m={'auth/email-already-in-use':'Ya existe','auth/weak-password':'Debil','auth/network-request-failed':'Error de red'};showBanner('registerError',m[err.code]||err.message)}
+            finally{$('registerSubmitBtn').disabled=false;$('registerSubmitBtn').textContent='Crear cuenta'}
+        });
+
+        $('guestLoginBtn').addEventListener('click',async()=>{clearAuth();$('guestLoginBtn').disabled=true;$('guestLoginBtn').textContent='Conectando...';try{await signInAnonymously(auth)}catch(e){showBanner('loginError','Error al acceder')}finally{$('guestLoginBtn').disabled=false;$('guestLoginBtn').textContent='Acceso como invitado'}});
+
+        onAuthStateChanged(auth,user=>{
+            if(user){currentUser=user;showScreen($('mainApp'));$('bottomNav').classList.remove('hidden');const email=user.email||(user.isAnonymous?'Invitado':'Usuario');$('userEmailShort').textContent=email.length>16?email.slice(0,14)+'...':email;$('userAvatar').textContent=email.charAt(0).toUpperCase();startTaskSync();startCountdownSync();switchSection('tasks');$('taskInput').focus()}
+            else{currentUser=null;tasks=[];countdowns=[];tasksLoaded=false;countdownsLoaded=false;showScreen($('loginScreen'));$('loginEmail').focus()}
+        });
+
+        function startTaskSync(){if(!currentUser)return;onValue(ref(db,`users/${currentUser.uid}/tasks`),snap=>{const d=snap.val();const a=[];if(d)Object.entries(d).forEach(([id,v])=>a.push({id,text:v.text||'',completed:v.completed||false,category:v.category||null,dueDate:v.dueDate||null,dueTime:v.dueTime||null,createdAt:v.createdAt||Date.now()}));tasks=a;tasksLoaded=true;renderTasks()},()=>{tasksLoaded=true;renderTasks()})}
+        function renderTasks(){
+            if(!tasksLoaded||!currentUser)return;
+            let l=[...tasks];
+            if(currentFilter==='pending')l=l.filter(t=>!t.completed);else if(currentFilter==='completed')l=l.filter(t=>t.completed);else if(currentFilter==='overdue')l=l.filter(t=>!t.completed&&t.dueDate&&new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<new Date());else if(currentFilter==='today'){const td=new Date();td.setHours(0,0,0,0);const tm=new Date(td);tm.setDate(tm.getDate()+1);l=l.filter(t=>!t.completed&&t.dueDate&&new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)>=td&&new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<tm)}
+            if(searchQuery){const q=searchQuery.toLowerCase();l=l.filter(t=>t.text.toLowerCase().includes(q)||(t.category&&CATEGORIES[t.category]?.label.toLowerCase().includes(q)))}
+            l.sort((a,b)=>{if(a.dueDate&&!b.dueDate)return-1;if(!a.dueDate&&b.dueDate)return 1;if(a.dueDate&&b.dueDate)return new Date(`${a.dueDate}T${a.dueTime||'23:59'}`)-new Date(`${b.dueDate}T${b.dueTime||'23:59'}`);return(b.createdAt||0)-(a.createdAt||0)});
+            const el=$('taskList');el.innerHTML='';
+            if(!l.length)el.innerHTML='<div class="empty-state"><div class="empty-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p>Sin tareas</p></div>';
+            l.forEach(t=>{
+                const due=t.dueDate?(()=>{const d=new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`);const now=new Date();const today=new Date();today.setHours(0,0,0,0);const diff=Math.ceil((d-today)/86400000);if(d<now)return{text:'Vencida',cls:'overdue-text',overdue:true};if(diff===0)return{text:`Hoy ${t.dueTime||'23:59'}`,cls:'today-text',today:true};if(diff===1)return{text:'Manana',cls:''};if(diff<=7)return{text:`${diff} dias`,cls:''};return{text:d.toLocaleDateString('es-MX',{day:'numeric',month:'short'}),cls:''}})():null;
+                const ov=due?.overdue&&!t.completed,td=due?.today&&!t.completed;
+                let cls='task-item';if(t.completed)cls+=' completed';if(ov)cls+=' overdue';if(td)cls+=' due-today';
+                const div=document.createElement('div');div.className=cls;div.dataset.id=t.id;
+                div.innerHTML=`<div class="checkbox" data-action="toggle" data-id="${t.id}"></div><div class="task-content"><span class="task-text" data-action="toggle" data-id="${t.id}">${t.text.replace(/</g,'&lt;')}</span><div class="task-meta">${t.category&&CATEGORIES[t.category]?`<span class="tag-category" style="color:${CATEGORIES[t.category].color};border-color:${CATEGORIES[t.category].color}33;background:${CATEGORIES[t.category].color}12">${CATEGORIES[t.category].label}</span>`:''}${due?`<span class="tag-due ${due.cls}">${due.text}</span>`:''}<span>${t.createdAt?new Date(t.createdAt).toLocaleDateString('es-MX',{day:'numeric',month:'short'}):''}</span></div></div><button class="task-delete" data-action="delete" data-id="${t.id}">&times;</button>`;
+                el.appendChild(div);
+            });
+            $('pendingCount').textContent=tasks.filter(t=>!t.completed).length;
+            $('doneCount').textContent=tasks.filter(t=>t.completed).length;
+            $('overdueCount').textContent=tasks.filter(t=>!t.completed&&t.dueDate&&new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<new Date()).length;
+        }
+        async function addTask(text,cat,dueD,dueT){if(!currentUser)return;try{await set(push(ref(db,`users/${currentUser.uid}/tasks`)),{text:text.trim(),completed:false,createdAt:serverTimestamp(),category:cat||null,dueDate:dueD||null,dueTime:dueT||null});showToast('Tarea creada')}catch(e){showToast('Error')}}
+        async function toggleTask(id){const t=tasks.find(x=>x.id===id);if(!t||!currentUser)return;try{await update(ref(db,`users/${currentUser.uid}/tasks/${id}`),{completed:!t.completed})}catch(e){showToast('Error')}}
+        async function deleteTask(id){if(!currentUser)return;try{await remove(ref(db,`users/${currentUser.uid}/tasks/${id}`));showToast('Eliminada')}catch(e){showToast('Error')}}
+
+        function startCountdownSync(){if(!currentUser)return;onValue(ref(db,`users/${currentUser.uid}/countdowns`),snap=>{const d=snap.val();const a=[];if(d)Object.entries(d).forEach(([id,v])=>a.push({id,name:v.name||'',date:v.date||'',createdAt:v.createdAt||Date.now()}));countdowns=a;countdownsLoaded=true;renderCountdowns();updateCalendarSelect()},()=>{countdownsLoaded=true;renderCountdowns()})}
+        function renderCountdowns(){
+            if(!countdownsLoaded||!currentUser)return;
+            const el=$('countdownList');
+            if(!countdowns.length){el.innerHTML='<div class="empty-state"><div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><p>Sin cuentas regresivas</p></div>';return}
+            const now=new Date();now.setHours(0,0,0,0);
+            countdowns.sort((a,b)=>new Date(a.date)-new Date(b.date));
+            el.innerHTML='';
+            countdowns.forEach(c=>{
+                const target=new Date(c.date+'T23:59:59');const diffMs=target-new Date();
+                const diffDays=Math.ceil(diffMs/86400000);const totalDays=Math.ceil((target-new Date(c.date+'T00:00:00'))/86400000)||1;
+                const elapsed=Math.max(0,totalDays-Math.max(0,diffDays));
+                const progress=totalDays>0?Math.min(100,(elapsed/totalDays)*100):100;
+                const isPassed=diffMs<0,isToday=diffDays===0&&!isPassed,isSoon=diffDays>0&&diffDays<=3;
+                const absDays=Math.abs(diffDays);
+                let barClass='',msgClass='',msg='';
+                if(isPassed){barClass='passed-bar';msgClass='passed';msg=`Finalizado hace ${absDays} dia(s)`}
+                else if(isToday){barClass='soon';msgClass='today';msg='Hoy es el dia'}
+                else if(isSoon){barClass='soon';msgClass='soon';msg=`Faltan ${diffDays} dias`}
+                else{msgClass='future';msg=`Faltan ${diffDays} dias`}
+                const div=document.createElement('div');
+                div.className=`countdown-card ${isPassed?'passed':''} ${isToday?'today':''}`;
+                div.innerHTML=`<div class="countdown-card-header"><div><div class="countdown-card-title">${c.name.replace(/</g,'&lt;')}</div><div class="countdown-card-date">${target.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'})}</div></div><button class="countdown-card-delete" data-action="deleteCountdown" data-id="${c.id}">&times;</button></div><div class="countdown-progress"><div class="countdown-progress-bar ${barClass}" style="width:${progress}%"></div></div><div class="countdown-stats"><div class="countdown-stat"><div class="countdown-stat-value ${isPassed?'passed':''}">${absDays}</div><div class="countdown-stat-label">Dias</div></div><div class="countdown-stat"><div class="countdown-stat-value">${Math.floor((Math.abs(diffMs)%86400000)/3600000)}</div><div class="countdown-stat-label">Horas</div></div><div class="countdown-stat"><div class="countdown-stat-value">${Math.floor((Math.abs(diffMs)%3600000)/60000)}</div><div class="countdown-stat-label">Min</div></div></div><div class="countdown-message ${msgClass}">${msg}</div>`;
+                el.appendChild(div);
+            });
+        }
+        async function addCountdown(name,date){if(!currentUser)return;try{await set(push(ref(db,`users/${currentUser.uid}/countdowns`)),{name:name.trim(),date,createdAt:serverTimestamp()});showToast('Cuenta regresiva creada')}catch(e){showToast('Error')}}
+        async function deleteCountdown(id){if(!currentUser)return;try{await remove(ref(db,`users/${currentUser.uid}/countdowns/${id}`));showToast('Eliminada');if(selectedCountdownId===id){selectedCountdownId=null;renderCalendar()}}catch(e){showToast('Error')}}
+
+        function updateCalendarSelect(){
+            const sel=$('calendarCountdownSelect');
+            sel.innerHTML='<option value="">Seleccione un evento...</option>';
+            countdowns.forEach(c=>{const opt=document.createElement('option');opt.value=c.id;opt.textContent=c.name;sel.appendChild(opt)});
+            if(selectedCountdownId&&!countdowns.find(c=>c.id===selectedCountdownId))selectedCountdownId=null;
+            if(selectedCountdownId)sel.value=selectedCountdownId;
+        }
+        function renderCalendar(){
+            const el=$('calendarDays');const info=$('selectedDayInfo');const empty=$('calendarEmpty');
+            if(!selectedCountdownId||!countdowns.find(c=>c.id===selectedCountdownId)){
+                el.innerHTML='';info.classList.add('hidden');empty.classList.remove('hidden');$('monthLabel').textContent='';return;
+            }
+            empty.classList.add('hidden');
+            const cd=countdowns.find(c=>c.id===selectedCountdownId);
+            const startDate=new Date(cd.createdAt||Date.now());startDate.setHours(0,0,0,0);
+            const targetDate=new Date(cd.date+'T23:59:59');targetDate.setHours(0,0,0,0);
+            const today=new Date();today.setHours(0,0,0,0);
+            const year=calendarMonth.getFullYear(),month=calendarMonth.getMonth();
+            $('monthLabel').textContent=`${MONTHS[month]} ${year}`;
+            const firstDay=new Date(year,month,1).getDay();
+            const daysInMonth=new Date(year,month+1,0).getDate();
+            const prevMonthDays=new Date(year,month,0).getDate();
+            let html=DAYS.map(d=>`<div class="calendar-day-header">${d}</div>`).join('');
+            for(let i=firstDay-1;i>=0;i--){html+=`<div class="calendar-day other-month">${prevMonthDays-i}</div>`}
+            for(let day=1;day<=daysInMonth;day++){
+                const d=new Date(year,month,day);let cls='calendar-day';
+                const isToday=d.getTime()===today.getTime();
+                const isPast=d<startDate||d>targetDate;
+                const isInRange=d>=startDate&&d<=targetDate;
+                const isPassedDay=d<today&&isInRange;
+                const isFutureDay=d>today&&isInRange;
+                if(isToday)cls+=' today';
+                if(isPassedDay)cls+=' passed';else if(isFutureDay)cls+=' future';
+                if(!isPast||isToday)html+=`<div class="${cls}" data-day="${day}" data-date="${d.toISOString()}">${day}</div>`;
+                else html+=`<div class="${cls}">${day}</div>`;
+            }
+            const remaining=42-(firstDay+daysInMonth);
+            for(let i=1;i<=remaining;i++)html+=`<div class="calendar-day other-month">${i}</div>`;
+            el.innerHTML=html;
+            el.querySelectorAll('.calendar-day[data-date]').forEach(dayEl=>{
+                dayEl.addEventListener('click',()=>{
+                    el.querySelectorAll('.calendar-day.selected').forEach(d=>d.classList.remove('selected'));
+                    dayEl.classList.add('selected');
+                    const d=new Date(dayEl.dataset.date);
+                    const diffDays=Math.ceil((targetDate-d)/(86400000));
+                    const absDays=Math.abs(diffDays);
+                    info.classList.remove('hidden');
+                    if(diffDays>0){$('selectedDayNumber').textContent=absDays;$('selectedDayNumber').style.color='var(--info)';$('selectedDayLabel').textContent='dias restantes'}
+                    else if(diffDays===0){$('selectedDayNumber').textContent='0';$('selectedDayNumber').style.color='var(--primary)';$('selectedDayLabel').textContent='hoy es el dia'}
+                    else{$('selectedDayNumber').textContent=absDays;$('selectedDayNumber').style.color='var(--danger)';$('selectedDayLabel').textContent='dias transcurridos'}
+                });
             });
         }
 
-        // Show error banner
-        function showBanner(id, msg) {
-            const el = $(id);
-            if (el) { el.textContent = msg; el.classList.add('visible'); }
-        }
+        $('prevMonth').addEventListener('click',()=>{calendarMonth.setMonth(calendarMonth.getMonth()-1);renderCalendar()});
+        $('nextMonth').addEventListener('click',()=>{calendarMonth.setMonth(calendarMonth.getMonth()+1);renderCalendar()});
+        $('calendarCountdownSelect').addEventListener('change',()=>{selectedCountdownId=$('calendarCountdownSelect').value;calendarMonth=new Date();renderCalendar()});
 
-        // ==================== NAVIGATION ====================
-        $('goToRegister').addEventListener('click', (e) => {
-            e.preventDefault();
-            clearAuthErrors();
-            document.querySelectorAll('#loginForm .input-field').forEach(i => i.classList.remove('error'));
-            $('loginEmail').value = ''; $('loginPassword').value = '';
-            showScreen(registerScreen);
-            $('registerEmail').focus();
-        });
-
-        $('goToLogin').addEventListener('click', (e) => {
-            e.preventDefault();
-            clearAuthErrors();
-            document.querySelectorAll('#registerForm .input-field').forEach(i => i.classList.remove('error'));
-            $('registerEmail').value = ''; $('registerPassword').value = ''; $('registerPasswordConfirm').value = '';
-            showScreen(loginScreen);
-            $('loginEmail').focus();
-        });
-
-        // ==================== LOGIN ====================
-        $('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            clearAuthErrors();
-            const email = $('loginEmail').value.trim();
-            const pass = $('loginPassword').value;
-            let valid = true;
-
-            if (!email) { $('loginEmail').classList.add('error'); showBanner('loginEmailError','Ingrese su correo electronico'); valid = false; }
-            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $('loginEmail').classList.add('error'); showBanner('loginEmailError','Formato de correo invalido'); valid = false; }
-            else { $('loginEmail').classList.remove('error'); }
-
-            if (!pass) { $('loginPassword').classList.add('error'); showBanner('loginPasswordError','Ingrese su contrasena'); valid = false; }
-            else { $('loginPassword').classList.remove('error'); }
-
-            if (!valid) return;
-
-            $('loginSubmitBtn').disabled = true;
-            $('loginSubmitBtn').textContent = 'Ingresando...';
-
-            try {
-                const cred = await signInWithEmailAndPassword(auth, email, pass);
-                console.log('Login exitoso:', cred.user.email);
-            } catch (error) {
-                console.error('Login error:', error.code);
-                const map = {
-                    'auth/invalid-credential': 'Correo o contrasena incorrectos.',
-                    'auth/user-not-found': 'No existe cuenta con este correo.',
-                    'auth/wrong-password': 'Contrasena incorrecta.',
-                    'auth/invalid-email': 'Formato de correo invalido.',
-                    'auth/user-disabled': 'Cuenta deshabilitada.',
-                    'auth/too-many-requests': 'Demasiados intentos. Espere un momento.',
-                    'auth/operation-not-allowed': 'Servicio no habilitado en Firebase.',
-                    'auth/network-request-failed': 'Error de red. Verifique conexion.'
-                };
-                showBanner('loginError', map[error.code] || `Error: ${error.message}`);
-                $('loginPassword').classList.add('error');
-            } finally {
-                $('loginSubmitBtn').disabled = false;
-                $('loginSubmitBtn').innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Ingresar';
-            }
-        });
-
-        // ==================== REGISTER ====================
-        $('registerForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            clearAuthErrors();
-            const email = $('registerEmail').value.trim();
-            const pass = $('registerPassword').value;
-            const confirm = $('registerPasswordConfirm').value;
-            let valid = true;
-
-            if (!email) { $('registerEmail').classList.add('error'); showBanner('registerEmailError','Ingrese su correo'); valid = false; }
-            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $('registerEmail').classList.add('error'); showBanner('registerEmailError','Formato invalido'); valid = false; }
-            else { $('registerEmail').classList.remove('error'); }
-
-            if (!pass) { $('registerPassword').classList.add('error'); showBanner('registerPasswordError','Ingrese una contrasena'); valid = false; }
-            else if (pass.length < 6) { $('registerPassword').classList.add('error'); showBanner('registerPasswordError','Minimo 6 caracteres'); valid = false; }
-            else { $('registerPassword').classList.remove('error'); }
-
-            if (!confirm) { $('registerPasswordConfirm').classList.add('error'); showBanner('registerConfirmError','Confirme su contrasena'); valid = false; }
-            else if (pass !== confirm) { $('registerPasswordConfirm').classList.add('error'); showBanner('registerConfirmError','Las contrasenas no coinciden'); valid = false; }
-            else { $('registerPasswordConfirm').classList.remove('error'); }
-
-            if (!valid) return;
-
-            $('registerSubmitBtn').disabled = true;
-            $('registerSubmitBtn').textContent = 'Creando cuenta...';
-
-            try {
-                const cred = await createUserWithEmailAndPassword(auth, email, pass);
-                console.log('Registro exitoso:', cred.user.email);
-                $('registerSuccess').textContent = 'Cuenta creada exitosamente. Redirigiendo...';
-                $('registerSuccess').classList.add('visible');
-                $('registerEmail').value = '';
-                $('registerPassword').value = '';
-                $('registerPasswordConfirm').value = '';
-                // La app cambia automaticamente via onAuthStateChanged
-            } catch (error) {
-                console.error('Register error:', error.code);
-                const map = {
-                    'auth/email-already-in-use': 'Este correo ya esta registrado. Inicie sesion.',
-                    'auth/invalid-email': 'Formato de correo invalido.',
-                    'auth/operation-not-allowed': 'Registro no habilitado en Firebase Console.',
-                    'auth/weak-password': 'Contrasena muy debil. Use al menos 6 caracteres.',
-                    'auth/network-request-failed': 'Error de red. Verifique su conexion.'
-                };
-                showBanner('registerError', map[error.code] || `Error: ${error.message}`);
-                $('registerEmail').classList.add('error');
-            } finally {
-                $('registerSubmitBtn').disabled = false;
-                $('registerSubmitBtn').innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Crear cuenta';
-            }
-        });
-
-        // ==================== GUEST LOGIN ====================
-        $('guestLoginBtn').addEventListener('click', async () => {
-            clearAuthErrors();
-            $('guestLoginBtn').disabled = true;
-            $('guestLoginBtn').textContent = 'Conectando...';
-            try {
-                await signInAnonymously(auth);
-            } catch (e) {
-                console.error('Guest error:', e);
-                showBanner('loginError', 'Error al acceder como invitado.');
-            } finally {
-                $('guestLoginBtn').disabled = false;
-                $('guestLoginBtn').innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 21v-1a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg> Acceso como invitado';
-            }
-        });
-
-        // ==================== AUTH STATE OBSERVER ====================
-        onAuthStateChanged(auth, user => {
-            if (user) {
-                showMainApp(user);
-            } else {
-                showScreen(loginScreen);
-                $('loginEmail').focus();
-            }
-        });
-
-        // ==================== MAIN APP ====================
-        function showMainApp(user) {
-            currentUser = user;
-            showScreen(mainApp);
-            const email = user.email || (user.isAnonymous ? 'Invitado' : 'Usuario');
-            $('userEmailShort').textContent = email.length > 16 ? email.slice(0,14)+'...' : email;
-            $('userAvatar').textContent = email.charAt(0).toUpperCase();
-            startSync();
-            $('taskInput').focus();
-        }
-
-        // ==================== SYNC ====================
-        function startSync() {
-            if (!currentUser) return;
-            tasksRef = ref(db, `users/${currentUser.uid}/tasks`);
-            onValue(tasksRef, snap => {
-                const data = snap.val();
-                const arr = [];
-                if (data) Object.entries(data).forEach(([id,v]) => arr.push({
-                    id, text:v.text||'', completed:v.completed||false,
-                    category:v.category||null, dueDate:v.dueDate||null,
-                    dueTime:v.dueTime||null, createdAt:v.createdAt||Date.now()
-                }));
-                tasks = arr;
-                if (!loaded) loaded = true;
-                render();
-            }, err => { console.error('Sync error:',err); if(!loaded){loaded=true;render();} });
-        }
-
-        // ==================== RENDER ====================
-        function render() {
-            if (!loaded || !currentUser) return;
-            let list = [...tasks];
-            if (currentFilter === 'pending') list = list.filter(t=>!t.completed);
-            else if (currentFilter === 'completed') list = list.filter(t=>t.completed);
-            else if (currentFilter === 'overdue') list = list.filter(t=>!t.completed && t.dueDate && new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<new Date());
-            else if (currentFilter === 'today') {
-                const td=new Date(); td.setHours(0,0,0,0);
-                const tm=new Date(td); tm.setDate(tm.getDate()+1);
-                list = list.filter(t=>!t.completed && t.dueDate && new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)>=td && new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<tm);
-            }
-            if (searchQuery) {
-                const q=searchQuery.toLowerCase();
-                list=list.filter(t=>t.text.toLowerCase().includes(q)||(t.category&&CATEGORIES[t.category]?.label.toLowerCase().includes(q)));
-            }
-            list.sort((a,b)=>{
-                if(a.dueDate&&!b.dueDate)return -1;
-                if(!a.dueDate&&b.dueDate)return 1;
-                if(a.dueDate&&b.dueDate)return new Date(`${a.dueDate}T${a.dueTime||'23:59'}`)-new Date(`${b.dueDate}T${b.dueTime||'23:59'}`);
-                return (b.createdAt||0)-(a.createdAt||0);
-            });
-
-            const taskListEl = $('taskList');
-            taskListEl.innerHTML = '';
-            if (!list.length) {
-                taskListEl.innerHTML = `<div class="empty-state" style="color:var(--text-tertiary);padding:48px 20px;text-align:center;">Sin tareas</div>`;
-            }
-            list.forEach(t=>{
-                const due = t.dueDate ? (()=>{
-                    const d=new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`);
-                    const now=new Date();
-                    const today=new Date(); today.setHours(0,0,0,0);
-                    const diffDays=Math.ceil((d-today)/86400000);
-                    if(d<now)return{text:'Vencida',cls:'overdue-text',overdue:true};
-                    if(diffDays===0)return{text:`Hoy ${t.dueTime||'23:59'}`,cls:'today-text',today:true};
-                    if(diffDays===1)return{text:`Manana`,cls:''};
-                    if(diffDays<=7)return{text:`${diffDays} dias`,cls:''};
-                    return{text:d.toLocaleDateString('es-MX',{day:'numeric',month:'short'}),cls:''};
-                })() : null;
-                const overdue=due?.overdue && !t.completed;
-                const today=due?.today && !t.completed;
-                let cls='task-item';
-                if(t.completed)cls+=' completed';
-                if(overdue)cls+=' overdue';
-                if(today)cls+=' due-today';
-                const div=document.createElement('div'); div.className=cls; div.dataset.id=t.id;
-                div.innerHTML=`
-                    <div class="checkbox" data-action="toggle" data-id="${t.id}"></div>
-                    <div class="task-content">
-                        <span class="task-text" data-action="toggle" data-id="${t.id}">${t.text.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</span>
-                        <div class="task-meta">
-                            ${t.category&&CATEGORIES[t.category]?`<span class="tag-category" style="color:${CATEGORIES[t.category].color};border-color:${CATEGORIES[t.category].color}33;background:${CATEGORIES[t.category].color}12;">${CATEGORIES[t.category].label}</span>`:''}
-                            ${due?`<span class="tag-due ${due.cls}">${due.text}</span>`:''}
-                            <span>${t.createdAt?new Date(t.createdAt).toLocaleDateString('es-MX',{day:'numeric',month:'short'}):''}</span>
-                        </div>
-                    </div>
-                    <button class="task-delete" data-action="delete" data-id="${t.id}">&times;</button>`;
-                taskListEl.appendChild(div);
-            });
-            const p=tasks.filter(t=>!t.completed).length, d=tasks.filter(t=>t.completed).length;
-            const o=tasks.filter(t=>!t.completed&&t.dueDate&&new Date(`${t.dueDate}T${t.dueTime||'23:59'}:00`)<new Date()).length;
-            $('pendingCount').textContent=p; $('doneCount').textContent=d; $('overdueCount').textContent=o;
-        }
-
-        // ==================== TASK OPERATIONS ====================
-        async function addTask(text,cat,dueD,dueT){
-            if(!tasksRef)return;
-            const nr=push(tasksRef);
-            try{await set(nr,{text:text.trim(),completed:false,createdAt:serverTimestamp(),category:cat||null,dueDate:dueD||null,dueTime:dueT||null});showToast('Tarea creada');}
-            catch(e){showToast('Error al guardar');}
-        }
-        async function toggleTask(id){
-            const t=tasks.find(x=>x.id===id); if(!t||!tasksRef)return;
-            try{await update(ref(db,`users/${currentUser.uid}/tasks/${id}`),{completed:!t.completed});}
-            catch(e){showToast('Error de conexion');}
-        }
-        async function deleteTask(id){
-            if(!tasksRef)return;
-            try{await remove(ref(db,`users/${currentUser.uid}/tasks/${id}`));showToast('Tarea eliminada');}
-            catch(e){showToast('Error de conexion');}
-        }
-
-        // ==================== EVENT BINDINGS ====================
-        $('submitBtn').addEventListener('click',()=>{
-            const text=$('taskInput').value.trim();
-            if(!text||!currentUser)return;
-            if(text.length>200){showToast('Maximo 200 caracteres');return;}
-            addTask(text,$('categorySelect').value||null,$('dueDateInput').value||null,$('dueTimeInput').value||null);
-            $('taskInput').value=''; $('categorySelect').value=''; $('dueDateInput').value=''; $('dueTimeInput').value='12:00';
-            $('taskInput').focus();
-        });
-        $('taskInput').addEventListener('keydown',e=>{if(e.key==='Enter')$('submitBtn').click();});
-        $('clearDueBtn').addEventListener('click',()=>{$('dueDateInput').value='';$('dueTimeInput').value='12:00';});
-        $('taskList').addEventListener('click',e=>{
-            const {action,id}=e.target.dataset; if(!action||!id||!currentUser)return;
-            if(action==='toggle')toggleTask(id); if(action==='delete')deleteTask(id);
-        });
-        document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{
-            document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
-            b.classList.add('active'); currentFilter=b.dataset.filter; render();
-        }));
-        $('searchInput').addEventListener('input',()=>{searchQuery=$('searchInput').value.trim();render();});
-        $('logoutBtn').addEventListener('click',async()=>{
-            if(confirm('Cerrar sesion?')){await signOut(auth).catch(console.error);}
-        });
-
-        // ==================== CONNECTION ====================
-        onValue(ref(db,'.info/connected'),snap=>{
-            isOnline=snap.val()===true;
-            $('connBadge').className=`badge ${isOnline?'online':'offline'}`;
-            $('connLabel').textContent=isOnline?'Conectado':'Offline';
-        });
-
-        // ==================== SERVICE WORKER ====================
-        if('serviceWorker'in navigator){
-            const swCode=`
-                const CACHE='tareas-pro-v8';
-                self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./'])));});
-                self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(n=>n!==CACHE).map(n=>caches.delete(n)))));self.clients.claim();});
-                self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request).then(r=>{if(r&&r.status===200){const cl=r.clone();caches.open(CACHE).then(ca=>ca.put(e.request,cl));}return r;}).catch(()=>c)));});
-            `;
-            navigator.serviceWorker.register(URL.createObjectURL(new Blob([swCode],{type:'application/javascript'}))).catch(()=>{});
-        }
-
-        // Init
-        showScreen(loginScreen);
-        $('loginEmail').focus();
+        const taskInput=$('taskInput');
+        taskInput.addEventListener('input',()=>{const len=taskInput.value.length;const c=$('charCounter');c.textContent=`${len} / 500`;c.className='char-counter';if(len>400)c.classList.add('warning');if(len>480)c.classList.add('danger')});
+        $('submitTaskBtn').addEventListener('click',()=>{const text=taskInput.value.trim();if(!text||!currentUser)return;if(text.length>500){showToast('Maximo 500 caracteres');return}addTask(text,$('taskCategory').value||null,$('taskDueDate').value||null,$('taskDueTime').value||null);taskInput.value='';$('taskCategory').value='';$('taskDueDate').value='';$('taskDueTime').value='12:00';$('charCounter').textContent='0 / 500';$('charCounter').className='char-counter';taskInput.focus()});
+        taskInput.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('submitTaskBtn').click()}});
+        $('clearDueBtn').addEventListener('click',()=>{$('taskDueDate').value='';$('taskDueTime').value='12:00'});
+        $('taskList').addEventListener('click',e=>{const{action,id}=e.target.dataset;if(!action||!id||!currentUser)return;if(action==='toggle')toggleTask(id);if(action==='delete')deleteTask(id)});
+        document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentFilter=b.dataset.filter;renderTasks()}));
+        $('searchInput').addEventListener('input',()=>{searchQuery=$('searchInput').value.trim();renderTasks()});
+        $('addCountdownBtn').addEventListener('click',()=>{const name=$('countdownName').value.trim();const date=$('countdownDate').value;if(!name||!date||!currentUser){showToast('Complete nombre y fecha');return}addCountdown(name,date);$('countdownName').value='';$('countdownDate').value=''});
+        $('countdownList').addEventListener('click',e=>{if(e.target.dataset.action==='deleteCountdown')deleteCountdown(e.target.dataset.id)});
+        $('logoutBtn').addEventListener('click',async()=>{if(confirm('Cerrar sesion?'))await signOut(auth).catch(console.error)});
+        setInterval(()=>{if(countdowns.length)renderCountdowns();renderCalendar()},60000);
+        onValue(ref(db,'.info/connected'),snap=>{const online=snap.val()===true;$('connBadge').className=`badge ${online?'online':'offline'}`;$('connLabel').textContent=online?'Conectado':'Offline'});
+        showScreen($('loginScreen'));
     </script>
 </body>
 </html>
